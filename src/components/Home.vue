@@ -13,33 +13,36 @@
     </div>
     <div class="page-container page2 slide-in-right-1" v-else>
       <div class="principles-wrap">
+        <div @click="backToPrinciples" class="back-icon" :class="[principlesSelectedMode ? 'show-active':'']">
+          <img src="../assets/noun_back.svg" alt="Volver" />
+        </div>
         <div
           class="principles principles-1"
           :class="[slideIn ? 'slide-in-right-1':'']"
           @click="selectPrinciples('1')"
         >
-          <span>hablar</span>
+          <span>habla</span>
         </div>
         <div
           class="principles principles-2"
           :class="[slideIn ? 'slide-in-right-2':'']"
           @click="selectPrinciples('2')"
         >
-          <span>descubrir</span>
+          <span>descubre</span>
         </div>
         <div
           class="principles principles-3"
           :class="[slideIn ? 'slide-in-right-3':'']"
           @click="selectPrinciples('3')"
         >
-          <span>re-significar</span>
+          <span>significa</span>
         </div>
         <div
           class="principles principles-4"
           :class="[slideIn ? 'slide-in-right-4':'']"
           @click="selectPrinciples('4')"
         >
-          <span>reinventar</span>
+          <span>re-invéntate</span>
         </div>
       </div>
     </div>
@@ -52,7 +55,9 @@ export default {
     return {
       isPage1: true,
       backgrounTransition: false,
-      slideIn: false
+      slideIn: false,
+      principlesSelectedMode: false,
+      selectedElement: null
     };
   },
   created() {
@@ -72,13 +77,11 @@ export default {
       }, 1500);
     },
     selectPrinciples(item) {
-      console.log("order: ", item);
+      let me = this
       let elements = document.querySelectorAll(".principles");
       let page = document.querySelector(".page2");
-      let selectedElement = document.querySelector(".principles-" + item);
-      let backgroundSelected = getComputedStyle(selectedElement)
-        .backgroundColor;
-      console.log("backGroundSelected: ", backgroundSelected);
+      this.selectedElement = document.querySelector(".principles-" + item);
+      let backgroundSelected = getComputedStyle(this.selectedElement).backgroundColor;
       page.style.backgroundColor = backgroundSelected;
 
       for (let index = 0; index < elements.length; index++) {
@@ -87,18 +90,41 @@ export default {
         if (elementItem != item) {
           element.classList.add("slide-out-left-" + elementItem);
           setTimeout(function() {
-            selectedElement.style.width = "100%";
+            me.selectedElement.style.width = "100%";
             element.style.display = "none";
             // element.style.width = "25%";
           }, 900);
         }
       }
+      
+      setTimeout(function() {
+        me.principlesSelectedMode = true;
+      }, 2000);
+    },
+    backToPrinciples(){
+      // let me = this
+      this.principlesSelectedMode = false;
+      let elements = document.querySelectorAll(".principles");
+      for (let index = 0; index < elements.length; index++) {
+        const element = elements[index];
+        let elementItem = index + 1;
+       // if (elementItem != item) {
+          
+          setTimeout(function() {
+            element.style.width = "25%";
+            element.style.display = "flex";
+            // element.style.width = "25%";
+            element.classList.add("slide-in-left-" + elementItem);
+          }, 300);
+        //}
+      }
+
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .main-wrap {
   height: 100vh;
   width: 100%;
@@ -146,19 +172,23 @@ export default {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   transition: width 0.7s ease;
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
 }
 
 .principles span {
-  font-size: 30px;
+  font-size: 45px;
   width: 100%;
   text-align: end;
   padding-right: 5px;
+  position: relative;
+  bottom: 30%;
 }
 
 .principles:hover span {
-  font-size: 60px;
+  color: #7b7b7b;
   /* z-index: 60; */
   /*
   position: absolute;
@@ -180,7 +210,8 @@ export default {
 }
 
 .principles-4 {
-  background: #856c8b;
+  background: #d1b5d8;
+  /*#856c8b;*/
 }
 /*
 .principles-wrap>.principles {
@@ -208,6 +239,7 @@ export default {
   width: 100%;
   margin: -15% 0 0 -50%;
   font-size: 30px;
+  font-family: "Playfair Display", serif;
 }
 
 .home-text-wrap span {
@@ -217,6 +249,29 @@ export default {
   margin-right: 0.3em;
   margin-left: 0.3em;
 }
+
+.back-icon {
+  position: absolute;
+  height: 0;
+  z-index: 1;
+  top: 50px;
+  left: 25px;
+  transition: all 1s ease;
+  overflow: hidden;
+  
+  img {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.show-active {
+  display: block;
+  height: 80px;
+  
+}
+
+/*ANIMATIONS */
 
 .text-focus-in-1 {
   -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
