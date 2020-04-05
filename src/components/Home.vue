@@ -11,18 +11,34 @@
         <span class="text-focus-in-2">a tí mismo.</span>
       </div>
     </div>
-    <div class="page-container page2" v-else>
+    <div class="page-container page2 slide-in-right-1" v-else>
       <div class="principles-wrap">
-        <div class="principles principles-1" @click="selectPrinciples('1')">
+        <div
+          class="principles principles-1"
+          :class="[slideIn ? 'slide-in-right-1':'']"
+          @click="selectPrinciples('1')"
+        >
           <span>hablar</span>
         </div>
-        <div class="principles principles-2" @click="selectPrinciples('2')">
+        <div
+          class="principles principles-2"
+          :class="[slideIn ? 'slide-in-right-2':'']"
+          @click="selectPrinciples('2')"
+        >
           <span>descubrir</span>
         </div>
-        <div class="principles principles-3" @click="selectPrinciples('3')">
+        <div
+          class="principles principles-3"
+          :class="[slideIn ? 'slide-in-right-3':'']"
+          @click="selectPrinciples('3')"
+        >
           <span>re-significar</span>
         </div>
-        <div class="principles principles-4" @click="selectPrinciples('4')">
+        <div
+          class="principles principles-4"
+          :class="[slideIn ? 'slide-in-right-4':'']"
+          @click="selectPrinciples('4')"
+        >
           <span>reinventar</span>
         </div>
       </div>
@@ -35,31 +51,35 @@ export default {
   data() {
     return {
       isPage1: true,
-      backgrounTransition: false
+      backgrounTransition: false,
+      slideIn: false
     };
   },
   created() {
     let me = this;
+    this.slideIn = true;
     setTimeout(function() {
       me.goToPage2();
-    }, 4000);
+    }, 3000);
   },
   methods: {
     goToPage2() {
-      this.backgrounTransition = true;
+      // this.backgrounTransition = true;
+
       let me = this;
       setTimeout(function() {
         me.isPage1 = false;
-      }, 3000);
+      }, 1500);
     },
     selectPrinciples(item) {
       console.log("order: ", item);
       let elements = document.querySelectorAll(".principles");
       let page = document.querySelector(".page2");
       let selectedElement = document.querySelector(".principles-" + item);
-      let backgroundSelected = getComputedStyle(selectedElement).backgroundColor
-      console.log('backGroundSelected: ', backgroundSelected)
-      page.style.backgroundColor = backgroundSelected
+      let backgroundSelected = getComputedStyle(selectedElement)
+        .backgroundColor;
+      console.log("backGroundSelected: ", backgroundSelected);
+      page.style.backgroundColor = backgroundSelected;
 
       for (let index = 0; index < elements.length; index++) {
         const element = elements[index];
@@ -73,8 +93,6 @@ export default {
           }, 900);
         }
       }
-
-      setTimeout(function() {}, 900);
     }
   }
 };
@@ -92,23 +110,28 @@ export default {
     to(#d9e7ff)
   );
   background: linear-gradient(90deg, #effaff 0%, #d9e7ff 100%);
+  overflow: hidden;
+  cursor: url('../assets/mouse.png'), auto;
 }
 
 .page-container {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
+/*
 .page1 {
   background: linear-gradient(to right, transparent 50%, #ffff 50%);
   background-size: 200% 100%;
   background-position: left bottom;
-  transition: background-position 2s ease;
+  transition: background-position 1s ease;
 }
+*/
 
 .page2 {
   /* background: linear-gradient(90deg, transparent 0%, blue 100%);*/
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
 }
 
 .principles-wrap {
@@ -127,12 +150,21 @@ export default {
   transition: width 0.7s ease;
 }
 
+.principles span {
+  font-size: 30px;
+  width: 100%;
+  text-align: end;
+  padding-right: 5px;
+}
+
 .principles:hover span {
-  font-size: 98px;
+  font-size: 60px;
   /* z-index: 60; */
+  /*
   position: absolute;
   left: 0;
   bottom: 19%;
+  */
 }
 
 .principles-1 {
@@ -198,14 +230,14 @@ export default {
 }
 
 .text-focus-in-f {
-  -webkit-animation: text-focus-in 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: text-focus-in 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-}
-
-.text-blur-out {
-  -webkit-animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 5s
+  -webkit-animation: text-focus-in 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
     both;
-  animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 5s both;
+  animation: text-focus-in 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.text-blur-out {
+  -webkit-animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    3.5s both;
+  animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 3.5s both;
 }
 
 .slide-out-left-1 {
@@ -231,6 +263,67 @@ export default {
     0.5s both;
   animation: slide-out-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s both;
 }
+
+.slide-in-right-1 {
+  -webkit-animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slide-in-right-2 {
+  -webkit-animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    0.3s both;
+  animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+
+.slide-in-right-3 {
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    0.6s both;
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+.slide-in-right-4 {
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    0.9s both;
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-4-5 13:25:22
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-right 
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* ----------------------------------------------
  * Generated by Animista on 2020-4-5 2:4:25
  * Licensed under FreeBSD License.
