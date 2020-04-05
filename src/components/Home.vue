@@ -13,36 +13,83 @@
     </div>
     <div class="page-container page2 slide-in-right-1" v-else>
       <div class="principles-wrap">
-        <div @click="backToPrinciples" class="back-icon" :class="[principlesSelectedMode ? 'show-active':'']">
+        <div
+          @click="backToPrinciples"
+          class="back-icon"
+          :class="[principlesSelectedMode ? 'show-active':'']"
+        >
           <img src="../assets/noun_back.svg" alt="Volver" />
         </div>
         <div
           class="principles principles-1"
           :class="[slideIn ? 'slide-in-right-1':'']"
-          @click="selectPrinciples('1')"
-        >
-          <span>habla</span>
+          @click="selectPrinciples('1')">
+          <span :class="principlesSelectedMode ? 'principleSelectedTitle':''">habla</span>
+          <div class="principles-sentences-wrap" v-if="principlesSelectedMode">
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+          </div>
         </div>
         <div
           class="principles principles-2"
           :class="[slideIn ? 'slide-in-right-2':'']"
           @click="selectPrinciples('2')"
         >
-          <span>descubre</span>
+          <span :class="principlesSelectedMode ? 'principleSelectedTitle':''">descubre</span>
+          <div class="principles-sentences-wrap" v-if="principlesSelectedMode">
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+          </div>
         </div>
         <div
           class="principles principles-3"
           :class="[slideIn ? 'slide-in-right-3':'']"
           @click="selectPrinciples('3')"
         >
-          <span>significa</span>
+          <span :class="principlesSelectedMode ? 'principleSelectedTitle':''">significa</span>
+          <div class="principles-sentences-wrap" v-if="principlesSelectedMode">
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+          </div>
         </div>
         <div
           class="principles principles-4"
           :class="[slideIn ? 'slide-in-right-4':'']"
           @click="selectPrinciples('4')"
         >
-          <span>re-invéntate</span>
+          <span :class="principlesSelectedMode ? 'principleSelectedTitle':''">re-invéntate</span>
+          <div class="principles-sentences-wrap" v-if="principlesSelectedMode">
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+            <div>
+              <span>Aqui la frase muy chevere 1</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,11 +124,12 @@ export default {
       }, 1500);
     },
     selectPrinciples(item) {
-      let me = this
+      let me = this;
       let elements = document.querySelectorAll(".principles");
       let page = document.querySelector(".page2");
       this.selectedElement = document.querySelector(".principles-" + item);
-      let backgroundSelected = getComputedStyle(this.selectedElement).backgroundColor;
+      let backgroundSelected = getComputedStyle(this.selectedElement)
+        .backgroundColor;
       page.style.backgroundColor = backgroundSelected;
 
       for (let index = 0; index < elements.length; index++) {
@@ -92,33 +140,31 @@ export default {
           setTimeout(function() {
             me.selectedElement.style.width = "100%";
             element.style.display = "none";
-            // element.style.width = "25%";
           }, 900);
         }
       }
-      
+
       setTimeout(function() {
         me.principlesSelectedMode = true;
-      }, 2000);
+      }, 1000);
     },
-    backToPrinciples(){
+    backToPrinciples() {
       // let me = this
       this.principlesSelectedMode = false;
       let elements = document.querySelectorAll(".principles");
       for (let index = 0; index < elements.length; index++) {
         const element = elements[index];
         let elementItem = index + 1;
-       // if (elementItem != item) {
-          
-          setTimeout(function() {
-            element.style.width = "25%";
-            element.style.display = "flex";
-            // element.style.width = "25%";
-            element.classList.add("slide-in-left-" + elementItem);
-          }, 300);
+        // if (elementItem != item) {
+
+        setTimeout(function() {
+          element.style.width = "25%";
+          element.style.display = "flex";
+          // element.style.width = "25%";
+          element.classList.add("slide-in-left-" + elementItem);
+        }, 300);
         //}
       }
-
     }
   }
 };
@@ -185,6 +231,17 @@ export default {
   padding-right: 5px;
   position: relative;
   bottom: 30%;
+  transition: all 0.7s ease;
+}
+
+.principleSelectedTitle {
+  width: 25% !important;
+  text-align: start !important;
+  margin-left: 50px;  
+}
+
+.principles-sentences-wrap{
+  width: 100%;
 }
 
 .principles:hover span {
@@ -258,7 +315,7 @@ export default {
   left: 25px;
   transition: all 1s ease;
   overflow: hidden;
-  
+
   img {
     height: 80px;
     width: 80px;
@@ -268,7 +325,6 @@ export default {
 .show-active {
   display: block;
   height: 80px;
-  
 }
 
 /*ANIMATIONS */
