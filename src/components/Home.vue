@@ -111,7 +111,7 @@ export default {
   );
   background: linear-gradient(90deg, #effaff 0%, #d9e7ff 100%);
   overflow: hidden;
-  cursor: url('../assets/mouse.png'), auto;
+  cursor: none !important;
 }
 
 .page-container {

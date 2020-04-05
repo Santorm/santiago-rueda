@@ -1,16 +1,18 @@
 <template>
   <div id="app">
+    <Mouse />
     <Home />
   </div>
 </template>
 
 <script>
 import Home from "./components/Home.vue";
+import Mouse from './components/Mouse'
 
 export default {
   name: "App",
   components: {
-    Home
+    Home, Mouse
   }
 };
 </script>
