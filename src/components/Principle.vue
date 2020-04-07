@@ -1,6 +1,6 @@
 <template>
   <div :class="['principle-selected-wrap', 'principle-selected-'+index ,  'text-focus-in-'+index]">
-    <div @click="backToListPrinciples" class="back-icon text-pop-up-top">
+    <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
       <img src="../assets/noun_back.svg" alt="Volver" />
     </div>
     <div class="title">
@@ -51,8 +51,25 @@ export default {
 
 <style lang="scss" scoped>
 .principle-selected-wrap {
+    
   width: 100%;
   height: 100vh;
+  display: flex;
+  .title {
+      font-family: 'Playfair', serif;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      font-size: 60px;
+  }
+  .sentences{
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      font-size: 36px;
+  }
 }
 
 .principle-selected-1 {

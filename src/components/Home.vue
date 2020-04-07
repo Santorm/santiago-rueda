@@ -121,27 +121,7 @@ export default {
     },
     backToListPrinciples(){
       this.isPage = 2
-    },
-  /*
-    backToPrinciples() {
-      // let me = this
-      this.isInsidePrinciple = false;
-      this.principlesSelectedMode = false;
-      let elements = document.querySelectorAll(".principles");
-      for (let index = 0; index < elements.length; index++) {
-        const element = elements[index];
-        let elementItem = index + 1;
-        // if (elementItem != item) {
-
-        setTimeout(function() {
-          element.style.width = "25%";
-          element.style.display = "flex";
-          // element.style.width = "25%";
-          element.classList.add("slide-in-left-" + elementItem);
-        }, 300);
-        //}
-      }
-    }*/
+    }
   }
 };
 </script>
