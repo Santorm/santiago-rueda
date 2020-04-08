@@ -5,6 +5,7 @@
     </div>
     <div class="quotes-wrap">
       <span class="title">
+        <div class="under-line-title"></div>
         <slot name="title"></slot>
       </span>
       <div class="quotes">
@@ -29,7 +30,6 @@
       </div>
     </div>
     <div class="sentences">
-        
       <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 1">
         <span>
           <span class="comillas">"</span>
@@ -85,7 +85,7 @@ export default {
   .quotes-wrap {
     position: relative;
     top: 100px;
-    width: 30%;
+    width: 35%;
     display: flex;
     justify-content: center;
     flex-flow: column;
@@ -95,6 +95,15 @@ export default {
       font-family: "Playfair", serif;
       font-size: 100px;
       margin-bottom: 40px;
+      z-index: 1;
+      .under-line-title {
+        height: 10px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        top: 72px;
+        z-index: -1;
+      }
     }
 
     .quotes {
@@ -103,15 +112,19 @@ export default {
       font-weight: 300;
       .quote {
         margin: 25px auto;
+        &:hover {
+          background-color: #ffffff;
+          transition: all 0.5s ease-in;
+          .under-line {
+            transition: all 0.5s ease-in;
+            // width: 100%;
+          }
+        }
         .under-line {
-          height: 5px;
+          height: 3px;
           width: 0%;
           background-color: #ffffff;
           position: absolute;
-        }
-        &:hover .under-line {
-          transition: width 0.5s ease-in;
-          width: 100%;
         }
       }
     }
@@ -119,7 +132,7 @@ export default {
   .sentences {
     font-weight: 300;
     position: relative;
-    width: 70%;
+    width: 65%;
     display: flex;
     justify-content: center;
     flex-flow: column;

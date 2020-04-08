@@ -16,7 +16,13 @@ export default {
   components: {
     Home,
     Mouse
-  }
+  },
+   mounted() {
+    window.VANTA.BIRDS({
+      el: "#app"
+    });
+  },
+  
 };
 </script>
 

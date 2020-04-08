@@ -13,106 +13,70 @@
       </div>
     </div>
     <!-- PRINCIPLES LIST-->
-    <principle-list v-if="isPage === 2" @principleSelected="principleSelected"/>
+    <principle-list v-if="isPage === 2" @principleSelected="principleSelected" />
     <!-- PRINCIPLES -->
     <div class="page-container slide-in-right-1" v-if="isPage === 3">
-      <div class="principles-wrap">     
+      <div class="principles-wrap">
         <!-- PRINCIPLE 1-->
-        <principle key="1" v-if="itemSelected == 1" :index="1" @backToListPrinciples="backToListPrinciples">
-          <template slot="title">
-            habla
-          </template>
-          <template slot="quote-1">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-1">
-            Hay cosas de las que cuesta hablar explicado
-          </template>
-          <template slot="quote-2">
-            Las cosas de las que nos cuesta hablar
-          </template>
-          <template slot="sentence-2">
-            Hay cosas de las que cuesta hablar
-          </template>
-          <template slot="quote-3">
-            Confidencial, respetuoso y sin juicios
-          </template>
-          <template slot="sentence-3">
-            Confidencial, respetuoso y sin juicios
-          </template>
+        <principle
+          key="1"
+          v-if="itemSelected == 1"
+          :index="1"
+          @backToListPrinciples="backToListPrinciples"
+        >
+          <template slot="title">habla</template>
+          <template slot="quote-1">Somos nuestra historia.</template>
+          <template slot="sentence-1">Hay cosas de las que cuesta hablar explicado.</template>
+          <template slot="quote-2">Las cosas de las que nos cuesta hablar.</template>
+          <template slot="sentence-2">Hay cosas de las que cuesta hablar.</template>
+          <template slot="quote-3">Confidencial, respetuoso y sin juicios.</template>
+          <template slot="sentence-3">Confidencial, respetuoso y sin juicios.</template>
         </principle>
-        
+
         <!-- PRINCIPLE 2-->
-        <principle key="2" v-if="itemSelected === 2" :index="2" @backToListPrinciples="backToListPrinciples">
-          <template slot="title">
-            descubre
-          </template>
-          <template slot="quote-1">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-1">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="quote-2">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-2">
-            Hay cosas de las que cuesta hablar
-          </template>
-          <template slot="quote-3">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-3">
-            Confidencial, respetuoso y sin juicios
-          </template>
+        <principle
+          key="2"
+          v-if="itemSelected === 2"
+          :index="2"
+          @backToListPrinciples="backToListPrinciples"
+        >
+          <template slot="title">descubre</template>
+          <template slot="quote-1">Un punto ciego para nosotros mismos.</template>
+          <template slot="sentence-1">Somos un punto ciego para nosotros mismos explicado.</template>
+          <template slot="quote-2">¿Eres lo que deseas o lo que esperan de tí?</template>
+          <template slot="sentence-2">¿Eres lo que deseas o lo que esperan de tí? ecplicado.</template>
+          <template slot="quote-3">Un punto de escucha diferente.</template>
+          <template slot="sentence-3">Un punto de escucha diferente explicado.</template>
         </principle>
         <!-- PRINCIPLE 3-->
-        <principle key="3" v-if="itemSelected === 3" :index="3" @backToListPrinciples="backToListPrinciples">
-          <template slot="title">
-            significa
-          </template>
-          <template slot="quote-1">
-            Toma decisiones desde tus propósitos
-          </template>
-          <template slot="sentence-1">
-            Toma decisiones desde tus propósitos
-          </template>
-          <template slot="quote-2">
-            ¿Qué quiero?
-          </template>
-          <template slot="sentence-2">
-            ¿Qué quiero?
-          </template>
-          <template slot="quote-3">
-            ¿Qué quiero?
-          </template>
-          <template slot="sentence-3">
-            Escúchate, comprende, actúa
-          </template>
+        <principle
+          key="3"
+          v-if="itemSelected === 3"
+          :index="3"
+          @backToListPrinciples="backToListPrinciples"
+        >
+          <template slot="title">significa</template>
+          <template slot="quote-1">Decisiones desde tus propósitos.</template>
+          <template slot="sentence-1">Decisiones desde tus propósitos explicado.</template>
+          <template slot="quote-2">¿Qué quiero?</template>
+          <template slot="sentence-2">¿Qué quiero? explicado.</template>
+          <template slot="quote-3">Escúchate, comprende, actúa.</template>
+          <template slot="sentence-3">Escúchate, comprende, actúa explicado.</template>
         </principle>
         <!-- PRINCIPLE 4-->
-        <principle key="4" v-if="itemSelected === 4" :index="4" @backToListPrinciples="backToListPrinciples">
-          <template slot="title">
-            crea
-          </template>
-          <template slot="quote-1">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-1">
-            Deconstruye tu propia historia
-          </template>
-          <template slot="quote-2">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-2">
-            Hazte cargo de tu deseo
-          </template>
-          <template slot="quote-3">
-            Somos la historia que nos contamos
-          </template>
-          <template slot="sentence-3">
-            Crear tu modo único de habitar el mundo
-          </template>
+        <principle
+          key="4"
+          v-if="itemSelected === 4"
+          :index="4"
+          @backToListPrinciples="backToListPrinciples"
+        >
+          <template slot="title">crea</template>
+          <template slot="quote-1">Deconstruye tu propia historia.</template>
+          <template slot="sentence-1">Deconstruye tu propia historia explicado.</template>
+          <template slot="quote-2">Hazte cargo de tu deseo.</template>
+          <template slot="sentence-2">Hazte cargo de tu deseo explicado.</template>
+          <template slot="quote-3">Crear tu modo único de habitar el mundo.</template>
+          <template slot="sentence-3">Crear tu modo único de habitar el mundo explicado.</template>
         </principle>
       </div>
     </div>
@@ -145,18 +109,17 @@ export default {
   },
   methods: {
     goToPage2() {
-      let me = this
+      let me = this;
       setTimeout(function() {
-        me.isPage = 2
-      }, 1500)
+        me.isPage = 2;
+      }, 1500);
     },
-    principleSelected(index){
-      console.log('principleSelected', index)
-      this.itemSelected = index
-      this.isPage = 3
+    principleSelected(index) {
+      this.itemSelected = index;
+      this.isPage = 3;
     },
-    backToListPrinciples(){
-      this.isPage = 2
+    backToListPrinciples() {
+      this.isPage = 2;
     }
   }
 };
