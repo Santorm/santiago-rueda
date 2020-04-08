@@ -55,7 +55,7 @@
           :index="3"
           @backToListPrinciples="backToListPrinciples"
         >
-          <template slot="title">significa</template>
+          <template slot="title">re-significa</template>
           <template slot="quote-1">Decisiones desde tus propósitos.</template>
           <template slot="sentence-1">Decisiones desde tus propósitos explicado.</template>
           <template slot="quote-2">¿Qué quiero?</template>

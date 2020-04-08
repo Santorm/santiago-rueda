@@ -1,5 +1,5 @@
 <template>
-  <div :class="['principle-selected-wrap', 'principle-selected-'+index ,  'text-focus-in-'+index]">
+  <div :class="['principle-selected-wrap', 'principle-selected-'+index]">
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
       <img src="../assets/noun_back.svg" alt="Volver" />
     </div>
@@ -84,7 +84,6 @@ export default {
   display: flex;
   .quotes-wrap {
     position: relative;
-    top: 100px;
     width: 35%;
     display: flex;
     justify-content: center;
@@ -93,15 +92,16 @@ export default {
     text-align: start;
     .title {
       font-family: "Playfair", serif;
-      font-size: 100px;
+      font-size: 8vw;
+      margin-top: 100px;
       margin-bottom: 40px;
       z-index: 1;
       .under-line-title {
-        height: 10px;
+        height: 0.7vw;
         width: 100%;
         background-color: #ffffff;
         position: relative;
-        top: 72px;
+        top: 5.7vw;
         z-index: -1;
       }
     }
@@ -138,8 +138,7 @@ export default {
     flex-flow: column;
     font-size: 36px;
     text-align: end;
-    margin-right: 50px;
-    top: -100px;
+    margin: 10px 50px;
     .comillas {
       font-family: "Palanquin", sans-serif;
       font-size: 126px;
@@ -147,8 +146,9 @@ export default {
       left: -10px;
       top: 25px;
     }
-
     .sentence {
+      position: relative;
+      top: -100px;
       margin: 20px 0;
     }
   }

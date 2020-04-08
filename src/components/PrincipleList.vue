@@ -27,16 +27,14 @@ export default {
         },
         {
           index: 3,
-          title: "significa"
+          title: "re-significa"
         },
         {
           index: 4,
           title: "crea"
         }
       ],
-      // isPage1: true,
       isInsidePrinciple: false,
-      // backgrounTransition: false,
       slideIn: false,
       principlesSelectedMode: false,
       selectedElement: null
