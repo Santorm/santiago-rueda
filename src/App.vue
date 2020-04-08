@@ -6,6 +6,8 @@
 </template>
 
 <script>
+
+
 import Home from "./components/Home.vue";
 import Mouse from "./components/Mouse";
 
@@ -19,6 +21,12 @@ export default {
 </script>
 
 <style>
+/*
+font-family: 'Palanquin', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Zilla Slab', serif;
+font-family: 'Playfair Display', serif;
+*/
 #app {
   height: 100vh;
   width: 100%;
@@ -161,6 +169,10 @@ table {
 }
 
 /*ANIMATIONS */
+.text-focus-in-0-5 {
+  -webkit-animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
 
 .text-focus-in-1 {
   -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;

@@ -3,24 +3,48 @@
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
       <img src="../assets/noun_back.svg" alt="Volver" />
     </div>
-    <div class="title">
-      <span>
+    <div class="quotes-wrap">
+      <span class="title">
         <slot name="title"></slot>
       </span>
+      <div class="quotes">
+        <div class="quote" @click="selectQuote(1)">
+          <span>
+            <slot name="quote-1"></slot>
+            <div class="under-line"></div>
+          </span>
+        </div>
+        <div class="quote" @click="selectQuote(2)">
+          <span>
+            <slot name="quote-2"></slot>
+            <div class="under-line"></div>
+          </span>
+        </div>
+        <div class="quote" @click="selectQuote(3)">
+          <span>
+            <slot name="quote-3"></slot>
+            <div class="under-line"></div>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="sentences">
-      <div>
+        
+      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 1">
         <span>
+          <span class="comillas">"</span>
           <slot name="sentence-1"></slot>
         </span>
       </div>
-      <div>
+      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 2">
         <span>
+          <span class="comillas">"</span>
           <slot name="sentence-2"></slot>
         </span>
       </div>
-      <div>
+      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 3">
         <span>
+          <span class="comillas">"</span>
           <slot name="sentence-3"></slot>
         </span>
       </div>
@@ -38,37 +62,82 @@ export default {
       // backgrounTransition: false,
       slideIn: false,
       principlesSelectedMode: false,
-      selectedElement: null
+      selectedElement: null,
+      quoteSelected: 0
     };
   },
   methods: {
-      backToListPrinciples(){
-          this.$emit('backToListPrinciples')
-      }
+    backToListPrinciples() {
+      this.$emit("backToListPrinciples");
+    },
+    selectQuote(quote) {
+      this.quoteSelected = quote;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .principle-selected-wrap {
-    
   width: 100%;
   height: 100vh;
   display: flex;
-  .title {
-      font-family: 'Playfair', serif;
-      width: 25%;
-      display: flex;
-      justify-content: center;
-      flex-flow: column;
-      font-size: 60px;
+  .quotes-wrap {
+    position: relative;
+    top: 100px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-left: 50px;
+    text-align: start;
+    .title {
+      font-family: "Playfair", serif;
+      font-size: 100px;
+      margin-bottom: 40px;
+    }
+
+    .quotes {
+      font-family: "Lato", sans-serif;
+      font-size: 25px;
+      font-weight: 300;
+      .quote {
+        margin: 25px auto;
+        .under-line {
+          height: 5px;
+          width: 0%;
+          background-color: #ffffff;
+          position: absolute;
+        }
+        &:hover .under-line {
+          transition: width 0.5s ease-in;
+          width: 100%;
+        }
+      }
+    }
   }
-  .sentences{
-      width: 75%;
-      display: flex;
-      justify-content: center;
-      flex-flow: column;
-      font-size: 36px;
+  .sentences {
+    font-weight: 300;
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    font-size: 36px;
+    text-align: end;
+    margin-right: 50px;
+    top: -100px;
+    .comillas {
+      font-family: "Palanquin", sans-serif;
+      font-size: 126px;
+      position: relative;
+      left: -10px;
+      top: 25px;
+    }
+
+    .sentence {
+      margin: 20px 0;
+    }
   }
 }
 

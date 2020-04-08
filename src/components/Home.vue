@@ -22,11 +22,20 @@
           <template slot="title">
             habla
           </template>
-          <template slot="sentence-1">
+          <template slot="quote-1">
             Somos la historia que nos contamos
+          </template>
+          <template slot="sentence-1">
+            Hay cosas de las que cuesta hablar explicado
+          </template>
+          <template slot="quote-2">
+            Las cosas de las que nos cuesta hablar
           </template>
           <template slot="sentence-2">
             Hay cosas de las que cuesta hablar
+          </template>
+          <template slot="quote-3">
+            Confidencial, respetuoso y sin juicios
           </template>
           <template slot="sentence-3">
             Confidencial, respetuoso y sin juicios
@@ -38,11 +47,20 @@
           <template slot="title">
             descubre
           </template>
+          <template slot="quote-1">
+            Somos la historia que nos contamos
+          </template>
           <template slot="sentence-1">
+            Somos la historia que nos contamos
+          </template>
+          <template slot="quote-2">
             Somos la historia que nos contamos
           </template>
           <template slot="sentence-2">
             Hay cosas de las que cuesta hablar
+          </template>
+          <template slot="quote-3">
+            Somos la historia que nos contamos
           </template>
           <template slot="sentence-3">
             Confidencial, respetuoso y sin juicios
@@ -53,10 +71,19 @@
           <template slot="title">
             significa
           </template>
+          <template slot="quote-1">
+            Toma decisiones desde tus propósitos
+          </template>
           <template slot="sentence-1">
             Toma decisiones desde tus propósitos
           </template>
+          <template slot="quote-2">
+            ¿Qué quiero?
+          </template>
           <template slot="sentence-2">
+            ¿Qué quiero?
+          </template>
+          <template slot="quote-3">
             ¿Qué quiero?
           </template>
           <template slot="sentence-3">
@@ -68,11 +95,20 @@
           <template slot="title">
             crea
           </template>
+          <template slot="quote-1">
+            Somos la historia que nos contamos
+          </template>
           <template slot="sentence-1">
             Deconstruye tu propia historia
           </template>
+          <template slot="quote-2">
+            Somos la historia que nos contamos
+          </template>
           <template slot="sentence-2">
             Hazte cargo de tu deseo
+          </template>
+          <template slot="quote-3">
+            Somos la historia que nos contamos
           </template>
           <template slot="sentence-3">
             Crear tu modo único de habitar el mundo
