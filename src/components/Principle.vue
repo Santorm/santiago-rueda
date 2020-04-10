@@ -9,23 +9,38 @@
         <slot name="title"></slot>
       </span>
       <div class="quotes">
-        <div class="quote" @click="selectQuote(1)">
+        <div
+          class="quote"
+          @click="selectQuote(1)"
+          @mouseover="selectQuote(1)"
+          :class="[quoteSelected === 1 ? 'active':'']"
+        >
           <span>
             <slot name="quote-1"></slot>
-            <div class="under-line"></div>
           </span>
+          <!-- <div class="under-line"></div> -->
         </div>
-        <div class="quote" @click="selectQuote(2)">
+        <div
+          class="quote"
+          @click="selectQuote(2)"
+          @mouseover="selectQuote(2)"
+          :class="[quoteSelected === 2 ? 'active':'']"
+        >
           <span>
             <slot name="quote-2"></slot>
-            <div class="under-line"></div>
           </span>
+          <!-- <div class="under-line"></div> -->
         </div>
-        <div class="quote" @click="selectQuote(3)">
+        <div
+          class="quote"
+          @click="selectQuote(3)"
+          @mouseover="selectQuote(3)"
+          :class="[quoteSelected === 3 ? 'active':'']"
+        >
           <span>
             <slot name="quote-3"></slot>
-            <div class="under-line"></div>
           </span>
+          <!-- <div class="under-line"></div> -->
         </div>
       </div>
     </div>
@@ -82,9 +97,10 @@ export default {
   width: 100%;
   height: 100vh;
   display: flex;
+  overflow-y: auto;
   .quotes-wrap {
     position: relative;
-    width: 35%;
+    width: 40%;
     display: flex;
     justify-content: center;
     flex-flow: column;
@@ -108,16 +124,19 @@ export default {
 
     .quotes {
       font-family: "Lato", sans-serif;
-      font-size: 25px;
+      font-size: 1.7vw;
       font-weight: 300;
       .quote {
-        margin: 25px auto;
+        margin: 1.5vw auto;
+        &.active {
+          font-weight: 400;
+        }
         &:hover {
-          background-color: #ffffff;
-          transition: all 0.5s ease-in;
+          // background-color: #ffffff;
+          // transition: all 0.5s ease-in;
           .under-line {
             transition: all 0.5s ease-in;
-            // width: 100%;
+            width: 100%;
           }
         }
         .under-line {
@@ -132,13 +151,14 @@ export default {
   .sentences {
     font-weight: 300;
     position: relative;
-    width: 65%;
+    width: 60%;
     display: flex;
     justify-content: center;
     flex-flow: column;
-    font-size: 36px;
+    font-size: 2.2vw;
     text-align: end;
-    margin: 10px 50px;
+    padding: 10px 50px 10px 60px;
+    box-sizing: border-box;
     .comillas {
       font-family: "Palanquin", sans-serif;
       font-size: 126px;
@@ -148,8 +168,9 @@ export default {
     }
     .sentence {
       position: relative;
-      top: -100px;
+      top: -60px;
       margin: 20px 0;
+      line-height: 3.1vw;
     }
   }
 }
@@ -167,7 +188,7 @@ export default {
 }
 
 .principle-selected-4 {
-  background: #d1b5d8;
+  background: #d8cdb5;
   /*#856c8b;*/
 }
 .back-icon {

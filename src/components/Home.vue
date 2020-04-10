@@ -26,11 +26,32 @@
         >
           <template slot="title">habla</template>
           <template slot="quote-1">Somos nuestra historia.</template>
-          <template slot="sentence-1">Hay cosas de las que cuesta hablar explicado.</template>
+          <template slot="sentence-1">
+            <p>
+              <!-- Construimos nuestro mundo, desde el punto de vista que nuestra historia nos enseñó a mirar. 
+              Cada vivencia única e irrepetible hace de nuestra experiencia de vida un punto singular desde donde 
+              habitamos nuestros miedos y dificultades, pero también nuestras oportunidades y fortalezas.-->
+              Cada una de nuestras vivencias son experiencias personales e irrepetibles que moldean nuestro mundo y el lugar único desde el que tomamos nuestras desiciones. Es por ello que "somos nuestra historia" que a la vez la reescribimos con nuestras desiciones. No podemos cambiar nuestro pasado, pero podemos re-
+              <strong>descubrirlo</strong>
+              y darle otro sentido para construir el futuro.
+              <!-- Los recuerdos marcan nuestro presente. Es por ello que "somos nuestra historia" y las desiciones que tomamos desde este lugar único en el mundo.
+
+              Somos nuestra historia, 
+              Tienes la capacidad de contruir tu mundo en el presente
+              Construimos nuestro mundo a partir de nuestra historia-->
+            </p>
+            <p></p>
+          </template>
           <template slot="quote-2">Las cosas de las que nos cuesta hablar.</template>
-          <template slot="sentence-2">Hay cosas de las que cuesta hablar.</template>
-          <template slot="quote-3">Confidencial, respetuoso y sin juicios.</template>
-          <template slot="sentence-3">Confidencial, respetuoso y sin juicios.</template>
+          <template slot="sentence-2">
+            <p>La palabra es sanadora. Lo que llamamos trauma, las repeticiones vitales de las que no podemos salir, nuestros temores más ocultos, son nudos de palabras, trozos de historias desconectados de nuestros sentidos más profundos.</p>
+            <br />
+            <p>Hay cosas que cuesta decirlas en voz alta, incluso decírnoslo a nosotros mismos. Es por eso que "hablar" hace circular lo que está detenido, produciendo nuevos sentidos y emociones.</p>
+          </template>
+          <template slot="quote-3">Un espacio honesto y seguro.</template>
+          <template slot="sentence-3">
+            <p>Empezar un proceso terapéutico requiere honestidad con nosotros mismos, es un acto de valentía y compromiso que necesita la confianza de un espacio confidencial, respetuoso y sin juicios, desde donde podamos aceptarnos a nosotros mismos para empezar un cambio.</p>
+          </template>
         </principle>
 
         <!-- PRINCIPLE 2-->
@@ -42,11 +63,17 @@
         >
           <template slot="title">descubre</template>
           <template slot="quote-1">Un punto ciego para nosotros mismos.</template>
-          <template slot="sentence-1">Somos un punto ciego para nosotros mismos explicado.</template>
-          <template slot="quote-2">¿Eres lo que deseas o lo que esperan de tí?</template>
-          <template slot="sentence-2">¿Eres lo que deseas o lo que esperan de tí? ecplicado.</template>
+          <template slot="sentence-1">
+            <p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos. Estamos tan envueltos de nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>
+          </template>
+          <template slot="quote-2">La libertad de elegir ser uno mismo</template>
+          <template slot="sentence-2">
+            <p>Estamos rodeados de exigencias de éxito que se confunden con lo que esperamos de nosotros mismos. Estos ideales incluso los defendemos, a pesar de que esclavizan nuestros propósitos, alimentándose de lo que suponemos que los demás esperan de nosotros.</p>
+          </template>
           <template slot="quote-3">Un punto de escucha diferente.</template>
-          <template slot="sentence-3">Un punto de escucha diferente explicado.</template>
+          <template slot="sentence-3">
+            <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y poder vernos a nosotros mismos desde un plano más amplio. Conocernos a nosotros mismos es descubrir los hilos inconscientes de nuestra vida, para empezar a tejer nuestra historia.</p>
+          </template>
         </principle>
         <!-- PRINCIPLE 3-->
         <principle
@@ -56,12 +83,18 @@
           @backToListPrinciples="backToListPrinciples"
         >
           <template slot="title">re-significa</template>
-          <template slot="quote-1">Decisiones desde tus propósitos.</template>
-          <template slot="sentence-1">Decisiones desde tus propósitos explicado.</template>
-          <template slot="quote-2">¿Qué quiero?</template>
-          <template slot="sentence-2">¿Qué quiero? explicado.</template>
-          <template slot="quote-3">Escúchate, comprende, actúa.</template>
-          <template slot="sentence-3">Escúchate, comprende, actúa explicado.</template>
+          <template slot="quote-1">¿Qué quiero?</template>
+          <template slot="sentence-1">
+            <p>¿Qué quiero? es una pregunta que no esta hecha para ser respondida de una vez por todas. Nuestro deseo cambia junto con nosotros, por lo que es necesario darle cada vez un nuevo sentido. En algún momento del proceso terapéutico, esta pregunta se presenta como la revelación de que hay que re-inventar y elegir una respuesta. </p>
+          </template>
+          <template slot="quote-2">Romper, construir, actuar.</template>
+          <template slot="sentence-2">
+            <p>              
+              Re-significar requiere romper para poder volver a construir. El proceso terapéutico es principalmente una experiencia .</p>
+            </template>
+          <template slot="quote-3">Decisiones desde tus propósitos.</template>
+          <template slot="sentence-3">El proceso terapéutico es creativo. Es necesario crear un propósito significativo, es decir, que nos de un sentido. Dar sentido es cómo tomar una brújula para orientarnos, pero también es sentir desde nuestras emociones, y sobre todo volver nuestros propósitos significantes dentro de nuestras vidas.</template>
+          
         </principle>
         <!-- PRINCIPLE 4-->
         <principle
@@ -124,7 +157,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 .main-wrap {
   height: 100vh;

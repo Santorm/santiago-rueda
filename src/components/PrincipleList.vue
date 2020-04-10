@@ -91,7 +91,7 @@ export default {
 }
 
 .principles-4 {
-  background: #d1b5d8;
+  background: #d8cdb5;
   /*#856c8b;*/
 }
 </style>
