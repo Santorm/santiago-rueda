@@ -70,7 +70,7 @@ export default {
   text-align: end;
   padding-right: 5px;
   position: relative;
-  bottom: 30%;
+  bottom: 33%;
   /* transition: all 0.7s ease;*/
 }
 

@@ -25,14 +25,11 @@
           @backToListPrinciples="backToListPrinciples"
         >
           <template slot="title">habla</template>
-          <template slot="quote-1">Somos nuestra historia.</template>
+          <template slot="quote-1">Somos nuestra historia, única e irrepetible.</template>
           <template slot="sentence-1">
+            <p>Nuestras experiencias nos hacen únicos e irrepetibles. Todos sentimos tristeza o amor, sin embargo cada uno lo vivimos desde nuestro modo singular de estar en el mundo.</p>
             <p>
-              Son nuestras experiencias las que nos hacen únicos e irrepetibles. Pensemos en la tristeza o el amor, que a pesar de que todos los hemos sentido, cada uno lo vivimos desde nuestro modo singular de estar en el mundo.
-            </p>
-            <br/>
-            <p>
-              Es por esto que la terapia es también un proceso 'hecho a medida', donde se trabaja con la particularidad de cada uno. 
+              Al tratar con personas y no con etiquetas, la terapia se vuelve un proceso 'hecho a medida', sensible a la particular historia de cada uno.
               <!-- donde podemos descubrir a través de nuestra historia el lugar desde el que entendemos el mundo. -->
             </p>
             <p></p>
@@ -40,14 +37,13 @@
           <template slot="quote-2">La palabra es sanadora.</template>
           <template slot="sentence-2">
             <p>Nuestros conflictos no resueltos son nudos de palabras, trozos de historias desconectados de nuestros sentidos más profundos.</p>
-            <br />
             <p>Hay cosas que cuesta decirlas en voz alta, incluso decírnoslo a nosotros mismos. Es por eso que "hablar" hace circular lo que está detenido, produciendo nuevos sentidos y emociones.</p>
           </template>
           <template slot="quote-3">Un espacio honesto y seguro.</template>
           <template slot="sentence-3">
-            <p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de un espacio confidencial, respetuoso y sin juicios.
-            </p><br/><p>
-              El espacio terapéutico es un sitio privilegiado donde podemos tener la libertad de enfrentarnos a nosotros mismos.</p>
+            <p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de un espacio confidencial, respetuoso y sin juicios.</p>
+            <br />
+            <p>La terapia es un sitio privilegiado donde podemos tener la libertad de enfrentarnos a nosotros mismos.</p>
           </template>
         </principle>
 
@@ -62,7 +58,6 @@
           <template slot="quote-1">Un punto ciego para nosotros mismos.</template>
           <template slot="sentence-1">
             <p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos.</p>
-            <br />
             <p>Estamos tan envueltos de nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>
           </template>
           <template slot="quote-2">La libertad de elegir ser uno mismo</template>
@@ -71,7 +66,7 @@
           </template>
           <template slot="quote-3">Un punto de escucha diferente.</template>
           <template slot="sentence-3">
-            <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y poder vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a tejer un nuevo relato.</p>
+            <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y poder vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta que somos los que tejemos nuestro relato.</p>
           </template>
         </principle>
         <!-- PRINCIPLE 3-->
@@ -86,12 +81,18 @@
           <template slot="sentence-1">
             <p>¿Qué quiero? es una pregunta que cambia con el tiempo, por lo que es necesario darle cada vez un nuevo sentido. En algún momento del proceso terapéutico nos hacemos esta pregunta, para darnos cuenta de que lo importante es que cada uno debe elegir su respuesta.</p>
           </template>
-          <template slot="quote-2">Hazte cargo de tu deseo.</template>
-          <template
-            slot="sentence-2"
-          ><p>¿Cómo estamos implicados en las cosas que nos suceden? Esta pregunta nos interpela, nos obliga a tomar posición y a aceptar que a pesar de nuestras contradicciones, podemos hacernos cargo de nuestro deseo y poder ganar la libertad para re-inventarlo.</p></template>
-          
-          
+          <template slot="quote-2">Nadie puede hacerse cargo de nuestro deseo.</template>
+          <template slot="sentence-2">
+            <p>
+              Somos nuestra historia, pero sobre todo es lo que hacemos con ella. Darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que hemos vivido, sino de la posición desde dónde la vivimos, nos permite
+              hacernos cargo de nuestro deseo.
+              <!-- Nadie puede hacerse cargo de nuestro deseo. 
+            
+              Parte del proceso es entender cómo estamos implicados en lo qué sucede en nuestras vidas. Esto significa comprender qué de nosotros se pone en juego en nuestro malestar. De esta manera podemos no retroceder ante nuestro deseo y hacernos responsables.-->
+              <!-- ¿Cómo estamos implicados en las cosas que nos suceden? Esta pregunta nos interpela, nos obliga a tomar posición y a aceptar que a pesar de nuestras contradicciones, podemos hacernos cargo de nuestro deseo y poder ganar la libertad para re-inventarlo. -->
+            </p>
+          </template>
+
           <template slot="quote-3">Sentido desde tus propósitos.</template>
           <template slot="sentence-3">
             <p>Todos buscamos una vida significativa, que tenga sentido. Dar sentido es cómo tomar una brújula para orientarnos, pero también es sentir desde nuestro cuerpo, y sobre todo volver significantes nuestros propósitos.</p>
@@ -113,14 +114,30 @@
           </template>
           <template slot="quote-2">Romper, construir, actuar.</template>
           <template slot="sentence-2">
-            <p>Muchas veces necesitamos romper para poder volver a construir. La terapia es principalmente una experiencia de ruptura y construcción de recuerdos, sentidos y emociones. Es un proceso en el que se trata de inventar una manera de actuar conforme a nuestro deseo.</p>
-          </template>          
+            <p>Muchas veces necesitamos romper para poder volver a construir. La terapia es principalmente una experiencia de ruptura y construcción de sentidos y emociones. Es un proceso en el que se trata de inventar nuestra manera de actuar conforme a nuestro deseo.</p>
+          </template>
           <template slot="quote-3">Crear tu modo único de habitar el mundo.</template>
-          <template slot="sentence-3"><p>La terapia no tiene porque ser una carrera, y tampoco existe la píldora mágica, nadie se cura de la vida!</p><br/><p> Piensa la terapia como una experiencia vital transformadora, que te permita encontrar la libertad necesaria para inventar tu modo único de estar en el mundo.</p></template>
+          <template slot="sentence-3">
+            <p>La terapia no tiene porque ser una carrera, y tampoco existe la píldora mágica, nadie se cura de la vida!</p>
+            <br />
+            <p>Piensa la terapia como una experiencia vital transformadora, que te permita encontrar la libertad necesaria para inventar tu modo único de estar en el mundo.</p>
+          </template>
         </principle>
       </div>
     </div>
-    <div class="contact-whatsapp"></div>
+    <a v-if="isPage != 1" class="contact-whatsapp text-focus-in-1" href="https://api.whatsapp.com/send?phone=[-34][657649342]" target="_blank"></a>
+    <!-- <div
+      v-if="isPage != 1"
+      class="contact-whatsapp text-focus-in-1"
+      @click="openWhatsAppDialog = true"
+    >
+      <div class="whatsapp-dialog" v-if="openWhatsAppDialog">
+        <div class="icon" @click="closeDialog"></div>
+        <div class="name">santiago rueda</div>
+        <div class="city">Barcelona - Terapia online</div>
+        <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -138,7 +155,8 @@ export default {
       backgrounTransition: false,
       slideIn: false,
       principlesSelectedMode: false,
-      selectedElement: null
+      selectedElement: null,
+      openWhatsAppDialog: false
     };
   },
   created() {
@@ -149,6 +167,11 @@ export default {
     }, 3000);
   },
   methods: {
+    closeDialog() {
+      console.log('closeDialog')
+      this.openWhatsAppDialog = false
+    },
+    openDialogWhatsApp() {},
     goToPage2() {
       let me = this;
       setTimeout(function() {
@@ -166,17 +189,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// C:\Users\santi\OneDrive\Documentos\WEB_ANALISIS\REPO\santiago-rueda\src\assets\whatsapp.png
-// santiago-rueda\src\components\Home.vue
 .contact-whatsapp {
-    background: url(../assets/whatsapp.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 80px;
-    width: 80px;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
+  background: url(../assets/whatsapp.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  bottom: 25px;
+  right: 50px;
 }
 .main-wrap {
   height: 100vh;
@@ -231,5 +252,43 @@ export default {
 .text-espaced {
   margin-right: 0.3em;
   margin-left: 0.3em;
+}
+
+.whatsapp-dialog {
+  background-color: #ffffff;
+  width: 300px;
+  height: 120px;
+  position: absolute;
+  left: -255px;
+  top: -10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Playfair Display", serif;
+  .icon {
+    position: absolute;
+    right: 3px;
+    height: 20px;
+    width: 30px;
+    background: url(/img/close.f31e3797.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .name {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+  .city {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .phone {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+    text-decoration: none;
+  }
 }
 </style>

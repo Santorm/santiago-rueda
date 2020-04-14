@@ -46,22 +46,16 @@
     </div>
     <div class="sentences">
       <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 1">
-        <span>
-          <span class="comillas">"</span>
-          <slot name="sentence-1"></slot>
-        </span>
+        <div class="comillas">"</div>
+        <slot name="sentence-1"></slot>
       </div>
       <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 2">
-        <span>
-          <span class="comillas">"</span>
-          <slot name="sentence-2"></slot>
-        </span>
+        <span class="comillas">"</span>
+        <slot name="sentence-2"></slot>
       </div>
       <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 3">
-        <span>
-          <span class="comillas">"</span>
-          <slot name="sentence-3"></slot>
-        </span>
+        <span class="comillas">"</span>
+        <slot name="sentence-3"></slot>
       </div>
     </div>
   </div>
@@ -153,22 +147,32 @@ export default {
     position: relative;
     width: 60%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-flow: column;
-    font-size: 2.2vw;
+    font-size: 1.9vw;
     text-align: end;
-    padding: 10px 50px 10px 60px;
+        padding: 10px 50px 100px 60px;
     box-sizing: border-box;
+    overflow: hidden;
     .comillas {
+      font-family: "Palanquin", sans-serif;
+      font-size: 526px;
+      position: relative;
+      top: 136px;
+      opacity: 0.1;
+      display: block;
+      user-select: none;
+      z-index: -1;
+      /*
       font-family: "Palanquin", sans-serif;
       font-size: 126px;
       position: relative;
       left: -10px;
       top: 25px;
+      */
     }
     .sentence {
       position: relative;
-      top: -60px;
       margin: 20px 0;
       line-height: 3.1vw;
     }
