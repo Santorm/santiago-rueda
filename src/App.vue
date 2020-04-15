@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Menu/>
     <Mouse />
     <Home />
   </div>
@@ -10,12 +11,14 @@
 
 import Home from "./components/Home.vue";
 import Mouse from "./components/Mouse";
+import Menu from "./components/Menu";
 
 export default {
   name: "App",
   components: {
     Home,
-    Mouse
+    Mouse,
+    Menu
   }  
 };
 </script>

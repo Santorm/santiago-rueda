@@ -1,0 +1,214 @@
+<template>
+  <div class="menu-container">
+    <div class="overlay" v-if="menuActive"></div>
+    <div class="menu" v-if="menuActive">
+      <div class="content-wrap">
+        <div class="page-links">
+          <div class="link">Por qué hago esto</div>
+          <div class="link">Qué es para mi la psicoterapia</div>
+          <div class="link">Salúdame</div>
+        </div>
+        <div class="presentationData">
+          <div class="name">santiago rueda</div>
+          <div class="city">Barcelona - Terapia online</div>
+          <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
+        </div>
+      </div>
+    </div>
+    <div id="nav-icon" @click="menuActive = !menuActive" :class="[menuActive ? 'open' : '']">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      menuActive: false
+    };
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.menu-container {
+  .menu {
+    position: absolute;
+    width: 500px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    margin: 20px auto;
+    height: calc(100vh - 40px);
+    background: #ffff;
+    border-radius: 10px;
+    z-index: 3;
+
+    .content-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 100px;
+      box-sizing: border-box;
+      height: 100%;
+      .page-links {
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Zilla Slab', serif;
+        .link {
+          margin: 10px auto;
+          font-size: 20px;
+        }
+      }
+      .presentationData {
+        height: 25%;
+        font-family: 'Zilla Slab', serif;
+        .name {
+          font-size: 30px;
+          margin-top: 20px;
+        }
+        .city {
+          margin-top: 15px;
+          font-size: 16px;
+        }
+        .phone {
+          display: inline-block;
+          margin-top: 5px;
+          font-family: "Lato", sans-serif;
+          font-size: 18px;
+          color: #2c3e50;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: grey;
+    opacity: 0.5;
+    border-radius: 0 10px 10px 0;
+    z-index: 1;
+  }
+
+  /*menu-icon*/
+
+  #nav-icon {
+    left: calc(50% - 25px);
+    z-index: 4;
+    width: 60px;
+    height: 45px;
+    position: absolute;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 50%;
+    background: #7b7b7b;
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  #nav-icon span:nth-child(even) {
+    left: 50%;
+    border-radius: 0 9px 9px 0;
+  }
+
+  #nav-icon span:nth-child(odd) {
+    left: 0px;
+    border-radius: 9px 0 0 9px;
+  }
+
+  #nav-icon span:nth-child(1),
+  #nav-icon span:nth-child(2) {
+    top: 0px;
+  }
+
+  #nav-icon span:nth-child(3),
+  #nav-icon span:nth-child(4) {
+    top: 18px;
+  }
+
+  #nav-icon span:nth-child(5),
+  #nav-icon span:nth-child(6) {
+    top: 36px;
+  }
+
+  #nav-icon.open span:nth-child(1),
+  #nav-icon.open span:nth-child(6) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #nav-icon.open span:nth-child(2),
+  #nav-icon.open span:nth-child(5) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #nav-icon.open span:nth-child(1) {
+    left: 5px;
+    top: 7px;
+  }
+
+  #nav-icon.open span:nth-child(2) {
+    left: calc(50% - 5px);
+    top: 7px;
+  }
+
+  #nav-icon.open span:nth-child(3) {
+    left: -100%;
+    opacity: 0;
+  }
+
+  #nav-icon.open span:nth-child(4) {
+    left: 100%;
+    opacity: 0;
+  }
+
+  #nav-icon.open span:nth-child(5) {
+    left: 5px;
+    top: 29px;
+  }
+
+  #nav-icon.open span:nth-child(6) {
+    left: calc(50% - 5px);
+    top: 29px;
+  }
+}
+</style>

@@ -151,7 +151,7 @@ export default {
     flex-flow: column;
     font-size: 1.9vw;
     text-align: end;
-        padding: 10px 50px 100px 60px;
+    padding: 10px 50px 100px 60px;
     box-sizing: border-box;
     overflow: hidden;
     .comillas {

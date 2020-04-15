@@ -60,7 +60,8 @@ export default {
   justify-content: center;
   align-items: flex-end;
   transition: width 1.5s ease-out;
-  font-family: "Playfair Display", serif;
+  font-family: 'Zilla Slab', serif;
+  // font-family: "Playfair Display", serif;
   color: #ffffff;
 }
 

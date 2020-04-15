@@ -254,6 +254,7 @@ export default {
   margin-left: 0.3em;
 }
 
+/*
 .whatsapp-dialog {
   background-color: #ffffff;
   width: 300px;
@@ -274,21 +275,7 @@ export default {
     background-position: center;
     background-size: contain;
   }
-  .name {
-    font-size: 22px;
-    margin-top: 20px;
-  }
-  .city {
-    margin-top: 15px;
-    font-size: 12px;
-  }
-  .phone {
-    display: inline-block;
-    margin-top: 8px;
-    font-family: "Lato", sans-serif;
-    font-size: 14px;
-    color: #2c3e50;
-    text-decoration: none;
-  }
+  
 }
+*/
 </style>
