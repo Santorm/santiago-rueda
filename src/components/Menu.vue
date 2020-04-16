@@ -1,17 +1,19 @@
 <template>
   <div class="menu-container">
-    <div class="overlay" v-if="menuActive"></div>
-    <div class="menu" v-if="menuActive">
+    <div class="overlay text-focus-in-0-5" v-if="menuActive"></div>
+    <div class="menu" v-if="menuActive" @mouseenter="mouseDark" @mouseleave="mouseLight">
       <div class="content-wrap">
         <div class="page-links">
-          <div class="link">Por qué hago esto</div>
-          <div class="link">Qué es para mi la psicoterapia</div>
-          <div class="link">Salúdame</div>
+          <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Lo que me mueve</div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Qué es para mi la psicoterapia</div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Salúdame</div>
         </div>
         <div class="presentationData">
           <div class="name">santiago rueda</div>
-          <div class="city">Barcelona - Terapia online</div>
+          <div class="city">Barcelona - terapia online</div>
           <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
+          <a href="tel:+34657649342" class="mail">hola@santiagoruedam.com</a>
         </div>
       </div>
     </div>
@@ -32,12 +34,14 @@ export default {
     return {
       menuActive: false
     };
-  }
+  },
+  
 };
 </script>
 
 <style lang="scss" scoped>
 .menu-container {
+  cursor: none !important;
   .menu {
     position: absolute;
     width: 500px;
@@ -60,32 +64,40 @@ export default {
       box-sizing: border-box;
       height: 100%;
       .page-links {
-        height: 75%;
+        height: 66%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-family: 'Zilla Slab', serif;
+        font-family: "Zilla Slab", serif;
         .link {
           margin: 10px auto;
           font-size: 20px;
         }
       }
       .presentationData {
-        height: 25%;
-        font-family: 'Zilla Slab', serif;
+        height: 33%;
+        font-family: "Zilla Slab", serif;
         .name {
           font-size: 30px;
           margin-top: 20px;
         }
         .city {
-          margin-top: 15px;
+          margin-top: 10px;
           font-size: 16px;
         }
         .phone {
-          display: inline-block;
+          display: block;
           margin-top: 5px;
           font-family: "Lato", sans-serif;
           font-size: 18px;
+          color: #2c3e50;
+          text-decoration: none;
+        }
+        .mail{
+          display: block;
+          margin-top: 40px;
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
           color: #2c3e50;
           text-decoration: none;
         }
@@ -97,8 +109,7 @@ export default {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: grey;
-    opacity: 0.5;
+    background: #00000082;
     border-radius: 0 10px 10px 0;
     z-index: 1;
   }
@@ -106,7 +117,7 @@ export default {
   /*menu-icon*/
 
   #nav-icon {
-    left: calc(50% - 25px);
+    left: calc(50% - 30px);
     z-index: 4;
     width: 60px;
     height: 45px;
