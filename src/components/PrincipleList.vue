@@ -1,5 +1,6 @@
 <template>
   <div class="principles-wrap">
+    
     <div
       v-for="principle in principles"
       :key="principle.index"
@@ -8,6 +9,7 @@
     >
       <span class="principles-title">{{principle.title}}</span>
     </div>
+    <router-link to="/bio">About us</router-link>
   </div>
 </template>
 

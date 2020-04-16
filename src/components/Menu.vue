@@ -6,7 +6,11 @@
         <div class="page-links">
           <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
           <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Lo que me mueve</div>
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Qué es para mi la psicoterapia</div>
+          <div
+            class="link"
+            @mouseenter="mouseHover"
+            @mouseleave="mouseNormal"
+          >Qué es para mi la psicoterapia</div>
           <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Salúdame</div>
         </div>
         <div class="presentationData">
@@ -34,8 +38,7 @@ export default {
     return {
       menuActive: false
     };
-  },
-  
+  }
 };
 </script>
 
@@ -93,7 +96,7 @@ export default {
           color: #2c3e50;
           text-decoration: none;
         }
-        .mail{
+        .mail {
           display: block;
           margin-top: 40px;
           font-family: "Lato", sans-serif;
@@ -117,9 +120,9 @@ export default {
   /*menu-icon*/
 
   #nav-icon {
-    left: calc(50% - 30px);
+    left: calc(50% - 20px);
     z-index: 4;
-    width: 60px;
+    width: 40px;
     height: 45px;
     position: absolute;
     margin: 50px auto;
@@ -137,9 +140,9 @@ export default {
   #nav-icon span {
     display: block;
     position: absolute;
-    height: 5px;
+    height: 4px;
     width: 50%;
-    background: #7b7b7b;
+    background: #ffffff;
     opacity: 1;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -151,29 +154,34 @@ export default {
     transition: 0.25s ease-in-out;
   }
 
+  #nav-icon.open span {
+    height: 3px;
+    background: #7b7b7b;
+  }
+
   #nav-icon span:nth-child(even) {
     left: 50%;
-    border-radius: 0 9px 9px 0;
+    border-radius: 0 4px 4px 0;
   }
 
   #nav-icon span:nth-child(odd) {
     left: 0px;
-    border-radius: 9px 0 0 9px;
+    border-radius: 4px 0 0 4px;
   }
 
   #nav-icon span:nth-child(1),
   #nav-icon span:nth-child(2) {
-    top: 0px;
+    top: 3px;
   }
 
   #nav-icon span:nth-child(3),
   #nav-icon span:nth-child(4) {
-    top: 18px;
+    top: 14px;
   }
 
   #nav-icon span:nth-child(5),
   #nav-icon span:nth-child(6) {
-    top: 36px;
+    top: 25px;
   }
 
   #nav-icon.open span:nth-child(1),
@@ -193,13 +201,13 @@ export default {
   }
 
   #nav-icon.open span:nth-child(1) {
-    left: 5px;
-    top: 7px;
+    left: 1.8px;
+    top: 4px;
   }
 
   #nav-icon.open span:nth-child(2) {
-    left: calc(50% - 5px);
-    top: 7px;
+    left: calc(50% - 3.7px);
+    top: 4px;
   }
 
   #nav-icon.open span:nth-child(3) {
@@ -213,13 +221,13 @@ export default {
   }
 
   #nav-icon.open span:nth-child(5) {
-    left: 5px;
-    top: 29px;
+    left: 2.5px;
+    top: 18.8px;
   }
 
   #nav-icon.open span:nth-child(6) {
-    left: calc(50% - 5px);
-    top: 29px;
+    left: calc(50% - 3.8px);
+    top: 19px;
   }
 }
 </style>
