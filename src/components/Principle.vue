@@ -3,6 +3,7 @@
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
       <img src="../assets/noun_back.svg" alt="Volver" />
     </div>
+    <!-- <nav-dots class="nav-dots-component"/> -->
     <div class="quotes-wrap">
       <span class="title">
         <div class="under-line-title"></div>
@@ -62,7 +63,9 @@
 </template>
 
 <script>
+// import NavDots from './NavDots'
 export default {
+  //components: {NavDots},
   props: ["index"],
   data() {
     return {
@@ -208,5 +211,10 @@ export default {
     height: 80px;
     width: 80px;
   }
+}
+
+.nav-dots-component {
+  position: absolute;
+  bottom: 30px;
 }
 </style>

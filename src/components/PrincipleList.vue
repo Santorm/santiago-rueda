@@ -9,7 +9,6 @@
     >
       <span class="principles-title">{{principle.title}}</span>
     </div>
-    <router-link to="/bio">About us</router-link>
   </div>
 </template>
 

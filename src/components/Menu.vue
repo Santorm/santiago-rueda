@@ -5,16 +5,21 @@
       <div class="content-wrap">
         <div class="page-links">
           <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Lo que me mueve</div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal"  @click="closeMenu">
+            <router-link to="/bio">Lo que me mueve</router-link></div>
           <div
             class="link"
             @mouseenter="mouseHover"
             @mouseleave="mouseNormal"
-          >Qué es para mi la psicoterapia</div>
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Salúdame</div>
+            @click="closeMenu"
+          >
+          <router-link  to="/bio">Qué es para mi la psicoterapia</router-link></div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal"  @click="closeMenu">
+            <router-link to="/bio">Salúdame</router-link>
+            </div>
         </div>
         <div class="presentationData">
-          <div class="name">santiago rueda</div>
+          <div class="name"><router-link to="/bio">santiago rueda</router-link></div>
           <div class="city">Barcelona - terapia online</div>
           <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
           <a href="tel:+34657649342" class="mail">hola@santiagoruedam.com</a>
@@ -38,7 +43,13 @@ export default {
     return {
       menuActive: false
     };
-  }
+  },
+  methods: {
+    closeMenu(){
+      console.log('closemenu')
+      this.menuActive = false
+    }
+  },
 };
 </script>
 
@@ -75,6 +86,13 @@ export default {
         .link {
           margin: 10px auto;
           font-size: 20px;
+          &:hover {
+            text-decoration: underline;
+          }
+          a {
+            text-decoration: none;
+            color: #2c3e50;
+          }
         }
       }
       .presentationData {
