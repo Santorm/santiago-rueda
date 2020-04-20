@@ -143,7 +143,10 @@ export default {
     position: absolute;
     /* top: 0; */
     /* left: 0; */
-    background: url(/img/santiago_rueda.9164d68e.jpg);
+    //santiago-rueda\src\components\Biography.vue
+    // santiago-rueda\public\santiago_rueda.jpg
+
+    background: url('<%= BASE_URL %>santiago_rueda.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     height: 100%;

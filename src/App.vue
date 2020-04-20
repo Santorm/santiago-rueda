@@ -2,21 +2,22 @@
   <div id="app">
     <Menu/>
     <Mouse />
-    <Home />
+    <router-view></router-view>
+    <!-- <Home /> -->
   </div>
 </template>
 
 <script>
 
 
-import Home from "./components/Home.vue";
+// import Home from "./components/Home.vue";
 import Mouse from "./components/Mouse";
 import Menu from "./components/Menu";
 
 export default {
   name: "App",
   components: {
-    Home,
+   // Home,
     Mouse,
     Menu
   }  

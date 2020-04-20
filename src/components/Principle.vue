@@ -1,7 +1,7 @@
 <template>
   <div :class="['principle-selected-wrap', 'principle-selected-'+index]">
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
-      <img src="../assets/icono_back blanco.svg" alt="Volver" />
+      <img src="<%= BASE_URL %>icono_back blanco.svg" alt="Volver" />
     </div>
     <div class="quotes-wrap">
       <span class="title">
