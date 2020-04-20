@@ -146,7 +146,7 @@ export default {
     //santiago-rueda\src\components\Biography.vue
     // santiago-rueda\public\santiago_rueda.jpg
 
-    background: url('<%= BASE_URL %>santiago_rueda.jpg');
+    background: url('../assets/santiago_rueda.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     height: 100%;

@@ -252,7 +252,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .contact-whatsapp {
-  background: url('<%= BASE_URL %>icono_whatsapp_blanco.svg');
+  background: url('../assets/icono_whatsapp_blanco.svg');
   color: #ffffff;
   background-size: contain;
   background-repeat: no-repeat;
@@ -262,7 +262,7 @@ export default {
   bottom: 25px;
   right: 50px;
   &:hover {
-    background: url('<%= BASE_URL %>icono_whatsapp_gris.svg');
+    background: url('../assets/icono_whatsapp_gris.svg');
   }
 }
 .main-wrap {
