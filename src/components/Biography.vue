@@ -13,7 +13,7 @@
               <div class="timeline-wrap">
                 <div class="line">
                   <div class="point">
-                    <div class="point-title">{{points[currentPoint].text}}</div>
+                    <div class="point-title">{{step.hito}}</div>
                   </div>
                 </div>
               </div>
@@ -21,13 +21,6 @@
           </transition>
         </div>
       </div>
-      <!-- <div class="timeline-wrap">
-        <div class="line">
-          <div class="point">
-            <div class="point-title">{{points[currentPoint].text}}</div>
-          </div>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>
@@ -41,21 +34,24 @@ export default {
   name: "bio",
   data() {
     return {
-      currentPoint: 0,
       timelineStep: 0,
       forwardDireccion: true,
       stepsContent: [
         {
           step: 0,
-          text: "Primer paso Me voy a a ver el pan, ya vengo"
+          text:
+            "Cómo toda desición importante en la vida. Elegir la carrera de psicología decía más sobre mis dudas sobre cómo funcionaba el mundo que sobre mi vocación. ",
+          hito: "las bases"
         },
         {
           step: 1,
-          text: "Segundo paso"
+          text: "Segundo paso",
+          hito: "SEG HITO"
         },
         {
           step: 2,
-          text: "Tercero paso"
+          text: "Tercero paso",
+          hito: "3ER HITO"
         }
       ],
       points: [
@@ -120,9 +116,6 @@ export default {
           this.timelineStep--;
         }, 300);
       }
-
-      console.log("this.stepsContent.length2222: ", this.stepsContent.length);
-      console.log("this.timelineStep2222: ", this.timelineStep);
     }
   }
 };
@@ -147,7 +140,7 @@ export default {
     //santiago-rueda\src\components\Biography.vue
     // santiago-rueda\public\santiago_rueda.jpg
 
-    background: url('../assets/santiago_rueda.jpg');
+    background: url("../assets/santiago_rueda.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     height: 100%;
@@ -170,7 +163,11 @@ export default {
       height: 100%;
       .content-text {
         position: absolute;
-        width: 100%;
+        padding-top: 50px;
+        text-align: end;
+        width: 600px;
+        right: 0;
+        line-height: 22px;
         height: 100%;
         .timeline-wrap {
           position: absolute;
