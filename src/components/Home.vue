@@ -19,6 +19,7 @@
       <div class="principles-wrap">
         <!-- PRINCIPLE 1-->
         <principle
+          class="slide-in-right-1"
           key="1"
           v-if="itemSelected == 1"
           :index="1"
@@ -49,6 +50,7 @@
 
         <!-- PRINCIPLE 2-->
         <principle
+          class="slide-in-right-1"
           key="2"
           v-if="itemSelected === 2"
           :index="2"
@@ -71,6 +73,7 @@
         </principle>
         <!-- PRINCIPLE 3-->
         <principle
+          class="slide-in-right-1"
           key="3"
           v-if="itemSelected === 3"
           :index="3"
@@ -100,6 +103,7 @@
         </principle>
         <!-- PRINCIPLE 4-->
         <principle
+          class="slide-in-right-1"
           key="4"
           v-if="itemSelected === 4"
           :index="4"
@@ -125,7 +129,12 @@
         </principle>
       </div>
     </div>
-    <a v-if="isPage != 1" class="contact-whatsapp text-focus-in-1" href="https://api.whatsapp.com/send?phone=[-34][657649342]" target="_blank"></a>
+    <a
+      v-if="isPage != 1"
+      class="contact-whatsapp text-focus-in-1"
+      href="https://api.whatsapp.com/send?phone=[-34][657649342]"
+      target="_blank"
+    ></a>
     <!-- <div
       v-if="isPage != 1"
       class="contact-whatsapp text-focus-in-1"
@@ -137,16 +146,25 @@
         <div class="city">Barcelona - Terapia online</div>
         <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
       </div>
-    </div> -->
+    </div>-->
+    <!-- NAV DOTS -->
+    <nav-dots
+      v-if="isPage === 3"
+      class="nav-dots-component"
+      :pages="pages"
+      @pageSelected="goTopage"
+      :currentPage="itemSelected"
+    />
   </div>
 </template>
 
 <script>
 import Principle from "./Principle";
 import PrincipleList from "./PrincipleList";
+import NavDots from "./NavDots";
 // santiago-rueda\src\components\Principle.vue
 export default {
-  components: { Principle, PrincipleList },
+  components: { Principle, PrincipleList, NavDots },
   data() {
     return {
       itemSelected: null,
@@ -156,20 +174,64 @@ export default {
       slideIn: false,
       principlesSelectedMode: false,
       selectedElement: null,
-      openWhatsAppDialog: false
+      openWhatsAppDialog: false,
+      pages: [
+        {
+          name: "principle1",
+          page: 1
+        },
+        {
+          name: "principle2",
+          page: 2
+        },
+        {
+          name: "principle3",
+          page: 3
+        },
+        {
+          name: "principle4",
+          page: 4
+        }
+      ]
     };
   },
+  watch: {
+    '$route.path': function () {
+      this.startNavigation()
+    }
+  },
   created() {
-    let me = this;
-    this.slideIn = true;
-    setTimeout(function() {
-      me.goToPage2();
-    }, 3000);
+    this.startNavigation()
   },
   methods: {
+    startNavigation(){
+    let me = this;
+    this.slideIn = true;
+    let page = this.$route.meta.page;
+    let principle = this.$route.meta.principle;
+
+    if (page) {
+      switch (page) {
+        case 2:
+          this.isPage = 2;
+          break;
+        case 3:
+          if (principle) {
+            this.principleSelected(principle);
+          }
+          break;
+      }
+    } else {
+      setTimeout(function() {
+        me.goToPage2();
+      }, 3000);
+    }
+    },
+    goTopage(page) {
+      this.principleSelected(page);
+    },
     closeDialog() {
-      console.log('closeDialog')
-      this.openWhatsAppDialog = false
+      this.openWhatsAppDialog = false;
     },
     openDialogWhatsApp() {},
     goToPage2() {
@@ -190,7 +252,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .contact-whatsapp {
-  background: url(../assets/whatsapp.png);
+  background: url(../assets/icono_whatsapp_blanco.svg);
+  color: #ffffff;
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
@@ -198,6 +261,9 @@ export default {
   position: absolute;
   bottom: 25px;
   right: 50px;
+  &:hover {
+    background: url(../assets/icono_whatsapp_gris.svg);
+  }
 }
 .main-wrap {
   height: 100vh;
@@ -252,6 +318,15 @@ export default {
 .text-espaced {
   margin-right: 0.3em;
   margin-left: 0.3em;
+}
+
+.nav-dots-component {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*

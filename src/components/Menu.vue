@@ -5,28 +5,27 @@
       <div class="content-wrap">
         <div class="page-links">
           <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal"  @click="closeMenu">
-            <router-link to="/bio">Lo que me mueve</router-link></div>
-          <div
-            class="link"
-            @mouseenter="mouseHover"
-            @mouseleave="mouseNormal"
-            @click="closeMenu"
-          >
-          <router-link  to="/bio">Qué es para mi la psicoterapia</router-link></div>
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal"  @click="closeMenu">
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
+            <router-link to="/bio">bio</router-link>
+          </div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
+            <router-link to="/bio">Qué es para mi la psicoterapia</router-link>
+          </div>
+          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
             <router-link to="/bio">Salúdame</router-link>
-            </div>
+          </div>
         </div>
         <div class="presentationData">
-          <div class="name"><router-link to="/bio">santiago rueda</router-link></div>
+          <div class="name">
+            <router-link to="/bio">santiago rueda</router-link>
+          </div>
           <div class="city">Barcelona - terapia online</div>
           <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
           <a href="tel:+34657649342" class="mail">hola@santiagoruedam.com</a>
         </div>
       </div>
     </div>
-    <div id="nav-icon" @click="menuActive = !menuActive" :class="[menuActive ? 'open' : '']">
+    <div id="nav-icon" :class="[mode === 'dark' ? 'mode-dark':'', menuActive ? 'open' : '']" @click="menuActive = !menuActive">
       <span></span>
       <span></span>
       <span></span>
@@ -41,15 +40,30 @@
 export default {
   data() {
     return {
-      menuActive: false
+      menuActive: false,
+      mode: 'light'
     };
   },
-  methods: {
-    closeMenu(){
-      console.log('closemenu')
-      this.menuActive = false
+  watch: {
+    "$route.path": function() {
+      this.getMode()
     }
   },
+  created () {
+    this.getMode()
+  },
+  methods: {
+    closeMenu() {
+      this.menuActive = false;
+    },
+    getMode(){
+      if(this.$route.path === '/bio'){
+        this.mode = 'dark'
+      }else{
+        this.mode = 'light'
+      }
+    }
+  }
 };
 </script>
 
@@ -115,11 +129,16 @@ export default {
           text-decoration: none;
         }
         .mail {
-          display: block;
-          margin-top: 40px;
-          font-family: "Lato", sans-serif;
+          font-family: "Zilla Slab", serif;
+          // font-family: "Lato", sans-serif;
           font-size: 12px;
           color: #2c3e50;
+          display: inline-block;
+          position: absolute;
+          margin: auto;
+          right: 0;
+          left: 0;
+          bottom: 10px;
           text-decoration: none;
         }
       }
@@ -246,6 +265,10 @@ export default {
   #nav-icon.open span:nth-child(6) {
     left: calc(50% - 3.8px);
     top: 19px;
+  }
+
+  .mode-dark span  {
+    background: #7b7b7b !important;
   }
 }
 </style>

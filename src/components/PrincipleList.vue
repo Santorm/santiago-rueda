@@ -1,12 +1,10 @@
 <template>
-  <div class="principles-wrap">
-    
+  <div class="principles-wrap">    
     <div
       v-for="principle in principles"
       :key="principle.index"
       :class="['principles', 'principles-'+principle.index, 'slide-in-right-'+principle.index]"
-      @click="selectPrinciples(principle.index)"
-    >
+      @click="selectPrinciples(principle.index)">
       <span class="principles-title">{{principle.title}}</span>
     </div>
   </div>
@@ -43,7 +41,20 @@ export default {
   },
   methods: {
     selectPrinciples(item) {
-      this.$emit("principleSelected", item);
+      switch (item) {
+        case 1:
+          this.$router.push({path: '../manifiesto/habla'})
+          break;
+        case 2:
+          this.$router.push({path: '../manifiesto/descubre'})
+          break;
+        case 3:
+          this.$router.push({path: '../manifiesto/significa'})
+          break;
+        case 4:
+          this.$router.push({path: '../manifiesto/crea'})
+          break;
+      }
     }
   }
 };

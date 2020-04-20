@@ -5,6 +5,7 @@ import router from './routes.js'
 import App from './App.vue'
 
 
+// santiago-rueda\src\main.js
 Vue.config.productionTip = false
 
 Vue.mixin({

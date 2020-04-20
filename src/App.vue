@@ -1,28 +1,24 @@
 <template>
   <div id="app">
     <Menu/>
-    <Mouse/>
-    <!-- <Home /> -->
-    <!-- <Biography /> -->
-    <router-view></router-view>.
+    <Mouse />
+    <Home />
   </div>
 </template>
 
 <script>
 
 
-//import Home from "./components/Home.vue";
-import Mouse from "./components/Mouse"
-import Menu from "./components/Menu"
-// import Biography from "./components/Biography";
+import Home from "./components/Home.vue";
+import Mouse from "./components/Mouse";
+import Menu from "./components/Menu";
 
 export default {
   name: "App",
   components: {
-    //Home,
+    Home,
     Mouse,
-    Menu,
-    //Biography
+    Menu
   }  
 };
 </script>

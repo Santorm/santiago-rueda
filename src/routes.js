@@ -17,10 +17,38 @@ Vue.use(VueRouter)
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-    { path: '/', component: Home },
-    { path: '/bio', component: Biography },
-    // { path: '/bar', component: Bar }
-]
+    {
+        path: '/', component: Home,
+        children: [{
+            path: 'manifiesto',
+            component: Home,
+            meta: { page: 2 },
+            children: [{
+                path: 'habla',
+                component: Home,
+                meta: { page: 3, principle: 1 }
+            },
+            {
+                path: 'descubre',
+                component: Home,
+                meta: { page: 3, principle: 2 }
+            },
+            {
+                path: 'significa',
+                component: Home,
+                meta: { page: 3, principle: 3 }
+            },
+            {
+                path: 'crea',
+                component: Home,
+                meta: { page: 3, principle: 4 }
+            }]
+        }]
+    },
+    {
+        path: '/bio', component: Biography
+    }]
+
 
 // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
@@ -32,4 +60,4 @@ export const router = new VueRouter({
 */
 
 
-export default new VueRouter({routes})
+export default new VueRouter({ routes })

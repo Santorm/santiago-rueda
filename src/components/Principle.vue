@@ -1,9 +1,8 @@
 <template>
   <div :class="['principle-selected-wrap', 'principle-selected-'+index]">
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
-      <img src="../assets/noun_back.svg" alt="Volver" />
+      <img src="../assets/icono_back blanco.svg" alt="Volver" />
     </div>
-    <!-- <nav-dots class="nav-dots-component"/> -->
     <div class="quotes-wrap">
       <span class="title">
         <div class="under-line-title"></div>
@@ -63,9 +62,8 @@
 </template>
 
 <script>
-// import NavDots from './NavDots'
+
 export default {
-  //components: {NavDots},
   props: ["index"],
   data() {
     return {
@@ -80,7 +78,8 @@ export default {
   },
   methods: {
     backToListPrinciples() {
-      this.$emit("backToListPrinciples");
+      // this.$emit("backToListPrinciples");
+      this.$router.push({path: '../manifiesto'})
     },
     selectQuote(quote) {
       this.quoteSelected = quote;
@@ -177,7 +176,7 @@ export default {
     .sentence {
       position: relative;
       margin: 20px 0;
-      line-height: 3.1vw;
+      line-height: 2.5vw;
     }
   }
 }
@@ -200,7 +199,7 @@ export default {
 }
 .back-icon {
   position: absolute;
-  height: 80px;
+  height: 50px;
   z-index: 1;
   top: 50px;
   left: 25px;
@@ -208,13 +207,8 @@ export default {
   overflow: hidden;
 
   img {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
   }
-}
-
-.nav-dots-component {
-  position: absolute;
-  bottom: 30px;
 }
 </style>
