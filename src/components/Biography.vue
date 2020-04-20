@@ -112,13 +112,13 @@ export default {
         this.forwardDireccion = true;
         setTimeout(() => {
           this.timelineStep++;
-        }, 200);
+        }, 300);
       }
       if (!forward && this.timelineStep > 0) {
         this.forwardDireccion = false;
         setTimeout(() => {
           this.timelineStep--;
-        }, 200);
+        }, 300);
       }
 
       console.log("this.stepsContent.length2222: ", this.stepsContent.length);
@@ -135,6 +135,7 @@ export default {
   width: 100%;
   box-sizing: border-box;
   background: #dddddd;
+  overflow: hidden;
   // overflow-x: scroll;
   .photo {
     /* padding: 100px 50px 50px 50px; */
