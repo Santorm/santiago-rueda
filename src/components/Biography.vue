@@ -8,7 +8,7 @@
             <div class="content-text" v-if="step.step === timelineStep">
               <!-- :class="[step.step === timelineStep ? 'slide-out-left-1': 'slide-in-right-1']" -->
               <div>
-                <p>{{step.text}}</p>
+                <p v-html="step.text"></p>
               </div>
               <div class="timeline-wrap">
                 <div class="line">
@@ -39,19 +39,21 @@ export default {
       stepsContent: [
         {
           step: 0,
+          hito: "de dónde vengo",
           text:
-            "Cómo toda desición importante en la vida. Elegir la carrera de psicología decía más sobre mis dudas sobre cómo funcionaba el mundo que sobre mi vocación. ",
-          hito: "las bases"
+            "<p>Vengo de donde una línea divide en dos al planeta, un centro y a la vez una periferia. Ecuador es un país diverso, tanto en su belleza como sus realidades y los retos que tenemos. </p><br><p>Ahora vivo desde varios años en Barcelona. Extranjero a ciertas costumbres y acentos, considero un privilegio poder ver las cosas un poco desde fuera y a la vez sentirme parte. Para mí es importante poder sentarse en una plaza y poder ser uno mismo.</p> "
         },
         {
           step: 1,
-          text: "Segundo paso",
-          hito: "SEG HITO"
+          hito: "¿Por qué psicología?",
+          text:
+            "<p>Mi elección profesional, más que una cuestión vocacional, como es clásico en la psicología, fue por una curiosidad neurótica. Siempre quise entender el mundo y qué es eso que nos hace humanos. Tuve la suerte de formarme como psicólogo clínico.</p><br<p> Si resumo con lo que me quedo de mi formación académica, serían las clases de filosofía y de psicoanálisis; así como los grupos de trabajo y las conversaciones con los colegas que me rompían tanto los esquemas que era difícil evitar que me transforme.</p>"
         },
         {
           step: 2,
-          text: "Tercero paso",
-          hito: "3ER HITO"
+          hito: "Barcelona",
+          text:
+            "Vine a Barcelona para continuar con mi formación, pero también quería romper la burbuja y ver qué hay del otro lado. Continúe con mi formación y volví a poner todo patas arriba. La experiencia de escuchar otros referentes en la SCB y el máster fue descubrir encuentros fabulosos entre diversos saberes. Nuevamente esto me llevó a cuestionarme lo que daba por sentado y empezar a dejar de defender puntos de vista para empezar a buscar uno propio."
         }
       ],
       points: [
@@ -70,7 +72,7 @@ export default {
     document
       .querySelector(".content-wrap")
       .addEventListener("scroll", this.handleScroll);
-    window.addEventListener("wheel", helpers.debounce(this.handleWheel, 500));
+    window.addEventListener("wheel", helpers.debounce(this.handleWheel, 300));
   },
   destroyed() {
     document
@@ -108,13 +110,13 @@ export default {
         this.forwardDireccion = true;
         setTimeout(() => {
           this.timelineStep++;
-        }, 300);
+        }, 200);
       }
       if (!forward && this.timelineStep > 0) {
         this.forwardDireccion = false;
         setTimeout(() => {
           this.timelineStep--;
-        }, 300);
+        }, 200);
       }
     }
   }
@@ -145,6 +147,7 @@ export default {
     background-size: contain;
     height: 100%;
     width: 100%;
+    opacity: 0.6;
   }
   .content-wrap {
     position: relative;
@@ -165,15 +168,17 @@ export default {
         position: absolute;
         padding-top: 50px;
         text-align: end;
-        width: 600px;
+        width: 700px;
         right: 0;
-        line-height: 22px;
+        line-height: 25px;
         height: 100%;
+        max-width: 100%;
         .timeline-wrap {
           position: absolute;
           height: 100px;
-          width: 100%;
+          width: 100vw;
           bottom: 0px;
+          right: -50px;
 
           .line {
             position: absolute;
@@ -183,12 +188,12 @@ export default {
             background: grey;
             // bottom: 100px;
             .point {
-              position: relative;
+              position: absolute;
               height: 12px;
               width: 12px;
               background: #ffffff;
               border-radius: 50%;
-              left: 50%;
+              right: 40%;
               top: -5px;
               .point-title {
                 margin: auto;
@@ -214,12 +219,12 @@ export default {
   animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .slideforward-leave-active {
-  animation: slide-out-left 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: slide-out-left 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 .slideback-enter-active {
   animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .slideback-leave-active {
-  animation: slide-out-right 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: slide-out-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 </style>
