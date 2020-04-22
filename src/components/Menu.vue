@@ -6,14 +6,14 @@
         <div class="page-links">
           <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
           <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
-            <router-link to="/bio">bio</router-link>
+            <router-link to="/manifiesto">acerca del proceso terapéutico</router-link>
           </div>
           <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
-            <router-link to="/bio">Qué es para mi la psicoterapia</router-link>
+            <router-link to="/bio">mi recorrido</router-link>
           </div>
-          <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
+          <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
             <router-link to="/bio">Salúdame</router-link>
-          </div>
+          </div> -->
         </div>
         <div class="presentationData">
           <div class="name">

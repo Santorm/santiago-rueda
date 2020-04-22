@@ -7,8 +7,16 @@
           <transition :name="forwardDireccion ? 'slideforward' :'slideback'">
             <div class="content-text" v-if="step.step === timelineStep">
               <!-- :class="[step.step === timelineStep ? 'slide-out-left-1': 'slide-in-right-1']" -->
-              <div>
+              <div class="content-text-container">
                 <p v-html="step.text"></p>
+                <div v-if="step.step === (stepsContent.length - 1) " class="cv-wrap">
+                  <div
+                    class="cv-items"
+                    :style="{background: getRandPaleteColor}"
+                    v-for="item in cvItems"
+                    :key="item.id"
+                  ></div>
+                </div>
               </div>
               <div class="timeline-wrap">
                 <div class="line">
@@ -34,26 +42,49 @@ export default {
   name: "bio",
   data() {
     return {
-      timelineStep: 0,
+      timelineStep: 0, //3,
       forwardDireccion: true,
+      palete: [
+        {
+          id: 0,
+          color: "#d8cdb5"
+        },
+        {
+          id: 1,
+          color: "#d4ebd0"
+        },
+        {
+          id: 2,
+          color: "#a4c5c6"
+        },
+        {
+          id: 3,
+          color: "#ffeb99"
+        }
+      ],
       stepsContent: [
         {
           step: 0,
-          hito: "de dónde vengo",
+          hito: "de donde vengo...",    
           text:
-            "<p>Vengo de donde una línea divide en dos al planeta, un centro y a la vez una periferia. Ecuador es un país diverso, tanto en su belleza como sus realidades y los retos que tenemos. </p><br><p>Ahora vivo desde varios años en Barcelona. Extranjero a ciertas costumbres y acentos, considero un privilegio poder ver las cosas un poco desde fuera y a la vez sentirme parte. Para mí es importante poder sentarse en una plaza y poder ser uno mismo.</p> "
+            "<p>Vengo de Ecuador, donde una línea divide en dos al planeta. He tenido la suerte de vivir en una región del mundo diversa en su belleza como en sus realidades sociales. Ahora vivo desde hace varios años en Barcelona. El venir de Ecuador y vivir en el extranjero a resultado para mi una experiencia de ruptura de esquemas que me llevaron a re-inventarme personal y profesionalmente.</p> "
         },
         {
           step: 1,
           hito: "¿Por qué psicología?",
           text:
-            "<p>Mi elección profesional, más que una cuestión vocacional, como es clásico en la psicología, fue por una curiosidad neurótica. Siempre quise entender el mundo y qué es eso que nos hace humanos. Tuve la suerte de formarme como psicólogo clínico.</p><br<p> Si resumo con lo que me quedo de mi formación académica, serían las clases de filosofía y de psicoanálisis; así como los grupos de trabajo y las conversaciones con los colegas que me rompían tanto los esquemas que era difícil evitar que me transforme.</p>"
+            "<p>Siempre tuve curiosidad por entender el mundo y sobre todo qué es lo que nos hace humanos. Esta curiosidad me llevó a una búsqueda personal y a estudiar la carrera de psicología clínica. Tuve la suerte de encontrarme con la filosofía y el psicoanálisis. De esta etapa de mi formación me llevo sobre todo la riqueza de los encuentros y conversaciones fuera de las aulas donde las teorías se cruzaban con la vida.</p>"
         },
         {
           step: 2,
           hito: "Barcelona",
           text:
-            "Vine a Barcelona para continuar con mi formación, pero también quería romper la burbuja y ver qué hay del otro lado. Continúe con mi formación y volví a poner todo patas arriba. La experiencia de escuchar otros referentes en la SCB y el máster fue descubrir encuentros fabulosos entre diversos saberes. Nuevamente esto me llevó a cuestionarme lo que daba por sentado y empezar a dejar de defender puntos de vista para empezar a buscar uno propio."
+            "Vine a Barcelona para continuar con mi formación, pero también quería romper la burbuja y ver qué hay del otro lado. El poder escuchar otros referentes me ayudaron a descubrir nuevos encuentros entre diversos saberes. La riqueza de una ciudad como Barcelona me abrió campo a otros modos de entender la psicoterapia, así como a involucrarme en innovación social y tecnológica para resolver retos sociales centrados en las pesonas."
+        },
+        {
+          step: 3,
+          hito: "por donde he pasado...",
+          text: ""
         }
       ],
       points: [
@@ -64,6 +95,56 @@ export default {
         {
           id: 1,
           text: "El segundo texto"
+        }
+      ],
+      cvItems: [
+        {
+          id: 0,
+          Text: "Cuadro "
+        },
+        {
+          id: 1,
+          Text: "Cuadro "
+        },
+        {
+          id: 2,
+          Text: "Cuadro "
+        },
+        {
+          id: 3,
+          Text: "Cuadro "
+        },
+        {
+          id: 4,
+          Text: "Cuadro "
+        },
+        {
+          id: 5,
+          Text: "Cuadro "
+        },
+        {
+          id: 6,
+          Text: "Cuadro "
+        },
+        {
+          id: 7,
+          Text: "Cuadro "
+        },
+        {
+          id: 8,
+          Text: "Cuadro "
+        },
+        {
+          id: 9,
+          Text: "Cuadro "
+        },
+        {
+          id: 10,
+          Text: "Cuadro "
+        },
+        {
+          id: 11,
+          Text: "Cuadro "
         }
       ]
     };
@@ -80,6 +161,19 @@ export default {
       .removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("wheel", this.handleWheel);
     // window.removeEventListener("scroll", this.handleScroll);
+  },
+  computed: {
+    getRandPaleteColor() {
+      //return setInterval(() => {
+        let max = this.palete.length;
+        let min = 0;
+        console.log("maxxx: ", max);
+        console.log("min: ", min);
+        let random = Math.floor(Math.random() * (max - min + 1) + min);
+        console.log(this.palete[random].color);
+        return this.palete[random].color;
+     // }, 1000);
+    }
   },
   methods: {
     isStepVisible(step) {
@@ -173,6 +267,10 @@ export default {
         line-height: 25px;
         height: 100%;
         max-width: 100%;
+        &-container {
+          position: relative;
+          height: calc(100% - 100px);
+        }
         .timeline-wrap {
           position: absolute;
           height: 100px;
@@ -208,6 +306,26 @@ export default {
                 border-radius: 5px;
               }
             }
+          }
+        }
+
+        .cv-wrap {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: stretch;
+          padding-bottom: 50px;
+          box-sizing: border-box;
+
+          .cv-items {
+            box-sizing: border-box;
+            width: calc(25% - 4px);
+            height: auto;
+            padding: 5px;
+            margin: 2px;
+            // background: #ffffff;
           }
         }
       }
