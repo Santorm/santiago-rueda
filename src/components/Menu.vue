@@ -13,7 +13,7 @@
           </div>
           <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
             <router-link to="/bio">Salúdame</router-link>
-          </div> -->
+          </div>-->
         </div>
         <div class="presentationData">
           <div class="name">
@@ -21,11 +21,15 @@
           </div>
           <div class="city">Barcelona - terapia online</div>
           <a href="tel:+34657649342" class="phone">+34 657-64-9342</a>
-          <a href="tel:+34657649342" class="mail">hola@santiagoruedam.com</a>
+          <a class="mail">hola@santiagoruedam.com</a>
         </div>
       </div>
     </div>
-    <div id="nav-icon" :class="[mode === 'dark' ? 'mode-dark':'', menuActive ? 'open' : '']" @click="menuActive = !menuActive">
+    <div
+      id="nav-icon"
+      :class="[mode === 'dark' ? 'mode-dark':'', menuActive ? 'open' : '']"
+      @click="menuActive = !menuActive"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -41,26 +45,26 @@ export default {
   data() {
     return {
       menuActive: false,
-      mode: 'light'
+      mode: "light"
     };
   },
   watch: {
     "$route.path": function() {
-      this.getMode()
+      this.getMode();
     }
   },
-  created () {
-    this.getMode()
+  created() {
+    this.getMode();
   },
   methods: {
     closeMenu() {
       this.menuActive = false;
     },
-    getMode(){
-      if(this.$route.path === '/bio'){
-        this.mode = 'dark'
-      }else{
-        this.mode = 'light'
+    getMode() {
+      if (this.$route.path === "/bio") {
+        this.mode = "dark";
+      } else {
+        this.mode = "light";
       }
     }
   }
@@ -238,12 +242,12 @@ export default {
   }
 
   #nav-icon.open span:nth-child(1) {
-    left: 1.8px;
+    left: 2px;
     top: 4px;
   }
 
   #nav-icon.open span:nth-child(2) {
-    left: calc(50% - 3.7px);
+    left: calc(50% - 5px);
     top: 4px;
   }
 
@@ -258,17 +262,27 @@ export default {
   }
 
   #nav-icon.open span:nth-child(5) {
-    left: 2.5px;
-    top: 18.8px;
+    left: 1px;
+    top: 18px;
   }
 
   #nav-icon.open span:nth-child(6) {
-    left: calc(50% - 3.8px);
-    top: 19px;
+    left: calc(50% - 4px);
+    top: 18px;
   }
 
-  .mode-dark span  {
+  .mode-dark span {
     background: #7b7b7b !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-container {
+    #nav-icon {
+      margin: 31px 10px;
+      left: auto;
+      right: 10px;
+    }
   }
 }
 </style>

@@ -42,9 +42,9 @@
           </template>
           <template slot="quote-3">Un espacio honesto y seguro.</template>
           <template slot="sentence-3">
-            <p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de un espacio confidencial, respetuoso y sin juicios.</p>
+            <p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de una escucha confidencial, respetuosa y sin juicios.</p>
             <br />
-            <p>La terapia es un sitio privilegiado donde podemos tener la libertad de enfrentarnos a nosotros mismos.</p>
+            <p>La terapia es un espacio privilegiado donde podemos tener la libertad de encontrarnos con nosotros mismos.</p>
           </template>
         </principle>
 
@@ -60,15 +60,15 @@
           <template slot="quote-1">Un punto ciego para nosotros mismos.</template>
           <template slot="sentence-1">
             <p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos.</p>
-            <p>Estamos tan envueltos de nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>
+            <p>Estamos tan envueltos en nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>
           </template>
           <template slot="quote-2">La libertad de elegir ser uno mismo</template>
           <template slot="sentence-2">
-            <p>Estamos rodeados de exigencias de éxito que se confunden con lo que esperamos de nosotros mismos. Estos ideales incluso los defendemos, a pesar de que esclavizan nuestros propósitos. La terapia permite un punto de vista crítico que nos libera de lo que suponemos que los demás esperan de nosotros.</p>
+            <p>Estamos rodeados de exigencias de éxito que se confunden con lo que esperamos de nosotros mismos. Estos ideales los defendemos, a pesar de que esclavizan nuestros propósitos. La terapia permite un punto de vista crítico que nos libera de lo que suponemos que los demás esperan de nosotros.</p>
           </template>
           <template slot="quote-3">Un punto de escucha diferente.</template>
           <template slot="sentence-3">
-            <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y poder vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta que somos los que tejemos nuestro relato.</p>
+            <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta de que somos nosotros los que tejemos nuestro relato.</p>
           </template>
         </principle>
         <!-- PRINCIPLE 3-->
@@ -87,7 +87,7 @@
           <template slot="quote-2">Nadie puede hacerse cargo de nuestro deseo.</template>
           <template slot="sentence-2">
             <p>
-              Somos nuestra historia, pero sobre todo es lo que hacemos con ella. Darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que hemos vivido, sino de la posición desde dónde la vivimos, nos permite
+              Somos nuestra historia, pero sobre todo somos lo que hacemos con ella. Es importante darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que vivimos, sino de la posición que tomamos frente a ellos para poder
               hacernos cargo de nuestro deseo.
               <!-- Nadie puede hacerse cargo de nuestro deseo. 
             
@@ -112,9 +112,7 @@
           <template slot="title">crea</template>
           <template slot="quote-1">La terapia es un acto creativo.</template>
           <template slot="sentence-1">
-            <p>La terapia es un espacio de acompañamiento co-creado, no se trata tanto de la guía de un experto como de un espacio de libertad creativa.</p>
-            <br />
-            <p>Cambiar requiere un acto creativo sobre uno mismo. El espacio terapéutico es como un taller creativo en el que podemos re-inventarnos.</p>
+            <p>Cambiar requiere de un acto creativo sobre uno mismo. El espacio terapéutico es como un taller de invención en donde cada uno pueda re-inventarse.</p>
           </template>
           <template slot="quote-2">Romper, construir, actuar.</template>
           <template slot="sentence-2">
@@ -196,36 +194,36 @@ export default {
     };
   },
   watch: {
-    '$route.path': function () {
-      this.startNavigation()
+    "$route.path": function() {
+      this.startNavigation();
     }
   },
   created() {
-    this.startNavigation()
+    this.startNavigation();
   },
   methods: {
-    startNavigation(){
-    let me = this;
-    this.slideIn = true;
-    let page = this.$route.meta.page;
-    let principle = this.$route.meta.principle;
+    startNavigation() {
+      let me = this;
+      this.slideIn = true;
+      let page = this.$route.meta.page;
+      let principle = this.$route.meta.principle;
 
-    if (page) {
-      switch (page) {
-        case 2:
-          this.isPage = 2;
-          break;
-        case 3:
-          if (principle) {
-            this.principleSelected(principle);
-          }
-          break;
+      if (page) {
+        switch (page) {
+          case 2:
+            this.isPage = 2;
+            break;
+          case 3:
+            if (principle) {
+              this.principleSelected(principle);
+            }
+            break;
+        }
+      } else {
+        setTimeout(function() {
+          me.goToPage2();
+        }, 3000);
       }
-    } else {
-      setTimeout(function() {
-        me.goToPage2();
-      }, 3000);
-    }
     },
     goTopage(page) {
       this.principleSelected(page);
@@ -252,17 +250,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .contact-whatsapp {
-  background: url('../assets/icono_whatsapp_blanco.svg');
+  background: url("../assets/icono_whatsapp_blanco.svg");
   color: #ffffff;
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
   position: absolute;
-  bottom: 25px;
-  right: 50px;
+  bottom: 3%;
+  right: 3%;
   &:hover {
-    background: url('../assets/icono_whatsapp_gris.svg');
+    background: url("../assets/icono_whatsapp_gris.svg");
   }
 }
 .main-wrap {
@@ -327,6 +325,7 @@ export default {
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  width: 180px;
 }
 
 /*

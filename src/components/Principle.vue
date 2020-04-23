@@ -62,7 +62,6 @@
 </template>
 
 <script>
-
 export default {
   props: ["index"],
   data() {
@@ -79,7 +78,7 @@ export default {
   methods: {
     backToListPrinciples() {
       // this.$emit("backToListPrinciples");
-      this.$router.push({path: '../manifiesto'})
+      this.$router.push({ path: "../manifiesto" });
     },
     selectQuote(quote) {
       this.quoteSelected = quote;
@@ -94,6 +93,10 @@ export default {
   height: 100vh;
   display: flex;
   overflow-y: auto;
+  flex-direction: row;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
   .quotes-wrap {
     position: relative;
     width: 40%;
@@ -102,19 +105,36 @@ export default {
     flex-flow: column;
     margin-left: 50px;
     text-align: start;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      padding-left: 20px;
+      margin-left: 0;
+      box-sizing: border-box;
+    }
     .title {
       font-family: "Playfair", serif;
       font-size: 8vw;
       margin-top: 100px;
       margin-bottom: 40px;
       z-index: 1;
+      @media only screen and (max-width: 768px) {
+        font-size: 75px;
+        margin-bottom: 10px;
+        margin-top: 80px;
+      }
       .under-line-title {
-        height: 0.7vw;
+        height: 8px;
         width: 100%;
         background-color: #ffffff;
         position: relative;
         top: 5.7vw;
         z-index: -1;
+        border-radius: 2px;
+
+        @media only screen and (max-width: 768px) {
+          top: 55px;
+          height: 5px;
+        }
       }
     }
 
@@ -122,8 +142,12 @@ export default {
       font-family: "Lato", sans-serif;
       font-size: 1.7vw;
       font-weight: 300;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 14px;
+      }
       .quote {
-        margin: 1.5vw auto;
+        margin: 0 auto 12px;
         &.active {
           font-weight: 400;
         }
@@ -156,6 +180,16 @@ export default {
     padding: 10px 50px 100px 60px;
     box-sizing: border-box;
     overflow: hidden;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      font-size: 16px;
+      line-height: 62px;
+      padding: 4% 4% 80px;
+      height: 60%;
+      justify-content: center;
+      text-align: justify;
+    }
     .comillas {
       font-family: "Palanquin", sans-serif;
       font-size: 526px;
@@ -177,6 +211,9 @@ export default {
       position: relative;
       margin: 20px 0;
       line-height: 2.5vw;
+      @media only screen and (max-width: 768px) {
+        line-height: 18px;
+      }
     }
   }
 }
@@ -202,9 +239,14 @@ export default {
   height: 50px;
   z-index: 1;
   top: 50px;
-  left: 25px;
+  left: 30px;
   transition: all 1s ease;
   overflow: hidden;
+
+  @media only screen and (max-width: 768px) {
+    top: 22px;
+    left: 10px;
+  }
 
   img {
     height: 50px;

@@ -9,7 +9,7 @@
               <!-- :class="[step.step === timelineStep ? 'slide-out-left-1': 'slide-in-right-1']" -->
               <div class="content-text-container">
                 <p v-html="step.text"></p>
-                <div v-if="step.step === (stepsContent.length - 1) " class="cv-wrap">
+                <div v-if="step.step === (stepsContent.length - 1) && false" class="cv-wrap">
                   <div
                     class="cv-items"
                     :style="{background: getRandPaleteColor}"
@@ -65,27 +65,28 @@ export default {
       stepsContent: [
         {
           step: 0,
-          hito: "de donde vengo...",    
+          hito: "de donde vengo...",
           text:
-            "<p>Vengo de Ecuador, donde una línea divide en dos al planeta. He tenido la suerte de vivir en una región del mundo diversa en su belleza como en sus realidades sociales. Ahora vivo desde hace varios años en Barcelona. El venir de Ecuador y vivir en el extranjero a resultado para mi una experiencia de ruptura de esquemas que me llevaron a re-inventarme personal y profesionalmente.</p> "
+            "<p>Mi historia empieza en un lugar que divide en dos al planeta, un centro y a la vez una periferia. Ecuador, un pequeño país, de grandes contrastes, diverso en sus bellezas y realidades. Ahora vivo en Barcelona, mi hogar desde hace ya varios años, donde he podido crecer y re-inventarme tanto en lo personal, como profesionalmente.</p> "
         },
         {
           step: 1,
           hito: "¿Por qué psicología?",
           text:
-            "<p>Siempre tuve curiosidad por entender el mundo y sobre todo qué es lo que nos hace humanos. Esta curiosidad me llevó a una búsqueda personal y a estudiar la carrera de psicología clínica. Tuve la suerte de encontrarme con la filosofía y el psicoanálisis. De esta etapa de mi formación me llevo sobre todo la riqueza de los encuentros y conversaciones fuera de las aulas donde las teorías se cruzaban con la vida.</p>"
+            "<p>Mi elección profesional empezó como una búsqueda personal que me llevó a estudiar la carrera de Psicología Clínica. Durante mi formación, tuve la suerte de encontrarme con la filosofía y el psicoanálisis. De esta etapa me llevo sobre todo la riqueza de los encuentros y las conversaciones fuera de las aulas donde la teoría se cruzaba con la vida.</p>"
         },
         {
           step: 2,
           hito: "Barcelona",
           text:
-            "Vine a Barcelona para continuar con mi formación, pero también quería romper la burbuja y ver qué hay del otro lado. El poder escuchar otros referentes me ayudaron a descubrir nuevos encuentros entre diversos saberes. La riqueza de una ciudad como Barcelona me abrió campo a otros modos de entender la psicoterapia, así como a involucrarme en innovación social y tecnológica para resolver retos sociales centrados en las pesonas."
-        },
+            "<p>La experiencia de venir a Barcelona me permitió ir rompiendo una burbuja que no me había dado cuenta que existía. El poner a prueba mis propios esquemas me ayudó a tomar una nueva posición como terapeuta, y descubrir también nuevas pasiones como la innovación social y el uso de la tecnología para intentar resolver retos sociales de forma colaborativa.<p/>"
+        }
+        /*,
         {
           step: 3,
           hito: "por donde he pasado...",
           text: ""
-        }
+        }*/
       ],
       points: [
         {
@@ -150,34 +151,34 @@ export default {
     };
   },
   mounted() {
+    /*
     document
       .querySelector(".content-wrap")
       .addEventListener("scroll", this.handleScroll);
+      */
     window.addEventListener("wheel", helpers.debounce(this.handleWheel, 300));
   },
   destroyed() {
+    /*
     document
       .querySelector(".content-wrap")
       .removeEventListener("scroll", this.handleScroll);
+      */
     window.removeEventListener("wheel", this.handleWheel);
     // window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
     getRandPaleteColor() {
       //return setInterval(() => {
-        let max = this.palete.length;
-        let min = 0;
-        console.log("maxxx: ", max);
-        console.log("min: ", min);
-        let random = Math.floor(Math.random() * (max - min + 1) + min);
-        console.log(this.palete[random].color);
-        return this.palete[random].color;
-     // }, 1000);
+      let max = this.palete.length;
+      let min = 0;
+      let random = Math.floor(Math.random() * (max - min + 1) + min);
+      return this.palete[random].color;
+      // }, 1000);
     }
   },
   methods: {
     isStepVisible(step) {
-      console.log("isStepVisible: ", step);
       return step.step === this.timelineStep;
       //  console.log('reeeturn: ', helpers.debounce(this.isCurrentStep(step), 500))
       /*
@@ -189,17 +190,15 @@ export default {
       */
     },
     isCurrentStep(step) {
-      console.log("dgsdgsd: ", step);
       return step === this.timelineStep;
     },
+    /*
     handleScroll(event) {
       console.log("handleScroll: ", event);
     },
+    */
     handleWheel(event) {
       let forward = event.deltaY > 0;
-      console.log("this.stepsContent.length: ", this.stepsContent.length);
-      console.log("this.timelineStep: ", this.timelineStep);
-
       if (forward && this.timelineStep < this.stepsContent.length - 1) {
         this.forwardDireccion = true;
         setTimeout(() => {
@@ -242,11 +241,17 @@ export default {
     height: 100%;
     width: 100%;
     opacity: 0.6;
+    @media only screen and (max-width: 768px) {
+      background-size: cover;
+      height: calc(100% - 100px);
+      background-position-x: center;
+      opacity: 0.3;
+    }
   }
   .content-wrap {
     position: relative;
     padding: 100px 50px 50px 50px;
-    //  font-family: "Lato", sans-serif;
+    // font-family: "Lato", sans-serif;
     font-family: "Playfair Display", serif;
     // font-family: 'Zilla Slab', serif;
     height: 100%;
@@ -254,6 +259,9 @@ export default {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     // overflow-x: scroll;
+    @media only screen and (max-width: 768px) {
+      padding: 100px 3% 50px 3%;
+    }
     .content-fixed {
       position: relative;
       width: 100%;
@@ -270,6 +278,13 @@ export default {
         &-container {
           position: relative;
           height: calc(100% - 100px);
+          font-family: "Lato", sans-serif;
+          font-weight: 300;
+          font-size: 20px;
+          @media only screen and (max-width: 768px) {
+            font-size: 16px;
+            line-height: 18px;
+          }
         }
         .timeline-wrap {
           position: absolute;
@@ -277,6 +292,9 @@ export default {
           width: 100vw;
           bottom: 0px;
           right: -50px;
+          @media only screen and (max-width: 768px) {
+            right: -3%;
+          }
 
           .line {
             position: absolute;
@@ -293,6 +311,10 @@ export default {
               border-radius: 50%;
               right: 40%;
               top: -5px;
+
+              @media only screen and (max-width: 768px) {
+                right: 270px;
+              }
               .point-title {
                 margin: auto;
                 position: relative;

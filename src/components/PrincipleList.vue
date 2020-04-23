@@ -63,6 +63,7 @@ export default {
 <style lang="scss" scoped>
 .principles-wrap {
     display: flex;
+    flex-direction: row;
 }
 
 .principles {
@@ -70,6 +71,7 @@ export default {
   height: 100vh;
   display: flex;
   justify-content: center;
+ 
   align-items: flex-end;
   transition: width 1.5s ease-out;
   font-family: 'Zilla Slab', serif;
@@ -106,5 +108,18 @@ export default {
 .principles-4 {
   background: #d8cdb5;
   /*#856c8b;*/
+}
+
+@media only screen and (max-width: 768px) {
+  .principles-wrap {
+    flex-direction: column;
+    .principles {
+      width: 100%;
+      span {
+        text-align: start;
+      }
+    }
+  }
+
 }
 </style>

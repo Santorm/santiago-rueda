@@ -1,30 +1,43 @@
 <template>
   <div id="app">
-    <Menu/>
-    <Mouse />
+    <Menu />
+    <Mouse v-if="!isTouch" class="mouse-component" />
     <router-view></router-view>
     <!-- <Home /> -->
   </div>
 </template>
 
 <script>
-
-
 // import Home from "./components/Home.vue";
 import Mouse from "./components/Mouse";
 import Menu from "./components/Menu";
 
 export default {
   name: "App",
+  data() {
+    return {
+      isTouch: false
+    };
+  },
   components: {
-   // Home,
+    // Home,
     Mouse,
     Menu
-  }  
+  },
+  created() {
+    window.addEventListener("touchstart", () => {
+      this.touchStartHandle();
+    });
+  },
+  methods: {
+    touchStartHandle () {
+      this.isTouch = true;
+    }
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
 /*
 font-family: 'Palanquin', sans-serif;
 font-family: 'Lato', sans-serif;
@@ -40,6 +53,12 @@ font-family: 'Playfair Display', serif;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.mouse-component {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -174,7 +193,8 @@ table {
 
 /*ANIMATIONS */
 .text-focus-in-0-5 {
-  -webkit-animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  -webkit-animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
   animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
@@ -371,24 +391,24 @@ table {
 @-webkit-keyframes slide-out-right {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(1000px);
-            transform: translateX(1000px);
+    transform: translateX(1000px);
     opacity: 0;
   }
 }
 @keyframes slide-out-right {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(1000px);
-            transform: translateX(1000px);
+    transform: translateX(1000px);
     opacity: 0;
   }
 }
@@ -408,29 +428,25 @@ table {
 @-webkit-keyframes slide-in-left {
   0% {
     -webkit-transform: translateX(-1000px);
-            transform: translateX(-1000px);
+    transform: translateX(-1000px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes slide-in-left {
   0% {
     -webkit-transform: translateX(-1000px);
-            transform: translateX(-1000px);
+    transform: translateX(-1000px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
-
-
-
-
 </style>
