@@ -16,7 +16,7 @@
           </div>-->
         </div>
         <div class="presentationData">
-          <div class="name">
+          <div class="name" @click="closeMenu">
             <router-link to="/bio">santiago rueda</router-link>
           </div>
           <div class="city">Barcelona - terapia online</div>

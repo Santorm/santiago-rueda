@@ -296,22 +296,31 @@ export default {
 }
 
 .home-text-wrap {
-  display: flex;
+  // display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 50%;
+  top: 0;
+  left: 0;
+  height: 0;
+  bottom: 0;
   width: 100%;
-  margin: -15% 0 0 -50%;
-  font-size: 30px;
+  font-size: 2.5vw;
   font-family: "Playfair Display", serif;
+  @media only screen and (max-width: 768px) {
+    font-size: 20px !important;
+  }
 }
 
 .home-text-wrap span {
   display: inline-block;
+  @media only screen and (max-width: 568px) {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+  }
 }
 .text-espaced {
   margin-right: 0.3em;
