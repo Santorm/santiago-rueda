@@ -9,9 +9,13 @@
 
 <script>
 export default {
-  props: ["pages", "currentPage"],
+  props: ["pages", "currentPage", "isBio"],
   methods: {
     gotoPage(page) {
+      if(this.isBio){
+        this.$emit('pageSelected', page.page)
+        return
+      }
       switch (page.page) {
         case 1:
           this.$router.push({ path: "../manifiesto/habla" });

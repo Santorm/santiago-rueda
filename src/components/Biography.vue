@@ -17,6 +17,13 @@
                     :key="item.id"
                   ></div>
                 </div>
+                <nav-dots
+                  class="nav-dots-component"
+                  :pages="pages"
+                  @pageSelected="goTopage"
+                  :currentPage="timelineStep"
+                  :isBio = true
+                />
               </div>
               <div class="timeline-wrap">
                 <div class="line">
@@ -35,15 +42,31 @@
 
 <script>
 import helpers from "../helpers/helpers.js";
+import NavDots from "./NavDots";
 
 // santiago-rueda\src\helpers\helpers.js
 // santiago-rueda\src\components\Biography.vue
 export default {
   name: "bio",
+  components:  {NavDots},
   data() {
     return {
       timelineStep: 0, //3,
       forwardDireccion: true,
+      pages: [
+        {
+          name: "bio1",
+          page: 0
+        },
+        {
+          name: "bio2",
+          page: 1
+        },
+        {
+          name: "bio3",
+          page: 2
+        }
+      ],
       palete: [
         {
           id: 0,
@@ -151,14 +174,21 @@ export default {
     };
   },
   mounted() {
-    /*
-    document
-      .querySelector(".content-wrap")
-      .addEventListener("scroll", this.handleScroll);
-      */
     window.addEventListener("wheel", helpers.debounce(this.handleWheel, 300));
+    let element = document.querySelector(".bio-wrap");
+    if (element) {
+      //element.addEventListener("scroll", this.handleScroll);
+      element.addEventListener("touchstart", this.handleTouchStart);
+      element.addEventListener("touchend", this.handleTouchEnd);
+    }
   },
   destroyed() {
+    let element = document.querySelector(".bio-wrap");
+    if (element) {
+      //element.removeEventListener("scroll", this.handleScroll);
+      element.removeEventListener("touchstart", this.handleTouchStart);
+      element.removeEventListener("touchend", this.handleTouchEnd);
+    }
     /*
     document
       .querySelector(".content-wrap")
@@ -178,6 +208,39 @@ export default {
     }
   },
   methods: {
+    goTopage(page){
+      console.log(page)
+      this.forwardDireccion = page > this.timelineStep;
+        setTimeout(() => {
+           this.timelineStep = page
+        }, 200);     
+    },
+    handleTouchStart(event) {
+      this.touchStartX = event.changedTouches[0].clientX;
+      this.touchStartY = event.changedTouches[0].clientY;
+    },
+    handleTouchEnd(event) {
+      let isScrollingNext = false;
+      let isScrollingBack = false;
+
+      this.touchEndX = event.changedTouches[0].clientX;
+      this.touchEndY = event.changedTouches[0].clientY;
+      isScrollingNext = this.touchStartX - this.touchEndX > 100; // || this.touchStartY - this.touchEndY > -30
+      isScrollingBack = this.touchStartX - this.touchEndX < -100; // this.touchStartY - this.touchEndY < 30
+
+      if (isScrollingNext && this.timelineStep < this.stepsContent.length - 1) {
+        this.forwardDireccion = true;
+        setTimeout(() => {
+          this.timelineStep++;
+        }, 200);
+      }
+      if (isScrollingBack && this.timelineStep > 0) {
+        this.forwardDireccion = false;
+        setTimeout(() => {
+          this.timelineStep--;
+        }, 200);
+      }
+    },
     isStepVisible(step) {
       return step.step === this.timelineStep;
       //  console.log('reeeturn: ', helpers.debounce(this.isCurrentStep(step), 500))

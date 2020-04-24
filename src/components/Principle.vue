@@ -72,10 +72,44 @@ export default {
       slideIn: false,
       principlesSelectedMode: false,
       selectedElement: null,
-      quoteSelected: 0
+      quoteSelected: 1
     };
   },
+  mounted() {
+    let element = document.querySelector(".principle-selected-wrap")
+    if(element){
+    //element.addEventListener("scroll", this.handleScroll);
+    element.addEventListener("touchstart", this.handleTouchStart);
+    element.addEventListener("touchend", this.handleTouchEnd);
+    }
+  },
+  destroyed() {
+    let element = document.querySelector(".principle-selected-wrap")
+    if(element){
+    //element.removeEventListener("scroll", this.handleScroll);
+    element.removeEventListener("touchstart", this.handleTouchStart);
+    element.removeEventListener("touchend", this.handleTouchEnd);
+    }
+  },
   methods: {
+    handleTouchStart(event) {      
+      this.touchStartX = event.changedTouches[0].clientX
+      this.touchStartY = event.changedTouches[0].clientY
+    },
+    handleTouchEnd(event) {
+      let isScrollingNext = false
+      let isScrollingBack = false
+      
+      this.touchEndX = event.changedTouches[0].clientX
+      this.touchEndY = event.changedTouches[0].clientY
+      isScrollingNext =  this.touchStartY - this.touchEndY > -30
+      isScrollingBack =  this.touchStartY - this.touchEndY < 30
+      if(isScrollingNext && this.quoteSelected < 3){
+        this.quoteSelected++
+      }else if (isScrollingBack && this.quoteSelected > 1){
+         this.quoteSelected--
+      }
+    },
     backToListPrinciples() {
       // this.$emit("backToListPrinciples");
       this.$router.push({ path: "../manifiesto" });
@@ -144,12 +178,13 @@ export default {
       font-weight: 300;
 
       @media only screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: calc(0.8em + 1vw);
       }
       .quote {
         margin: 0 auto 12px;
         &.active {
           font-weight: 400;
+          text-decoration: underline;
         }
         &:hover {
           // background-color: #ffffff;
@@ -183,7 +218,7 @@ export default {
 
     @media only screen and (max-width: 768px) {
       width: 100%;
-      font-size: 16px;
+      font-size: calc(1em + 1vw);
       line-height: 62px;
       padding: 4% 4% 80px;
       height: 60%;
