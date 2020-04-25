@@ -64,17 +64,19 @@ export default {
 .principles-wrap {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 
 .principles {
   width: 25%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
  
   align-items: flex-end;
   transition: width 1.5s ease-out;
-  font-family: 'Playfair,serif';
+  // font-family: 'Palanquin', sans-serif;
+  font-family: 'Playfair Display, serif';
   // font-family: "Playfair Display", serif;
   color: #ffffff;
 }
@@ -84,8 +86,10 @@ export default {
   width: 100%;
   text-align: end;
   padding-right: 5px;
+  padding-left: 10px;
   position: relative;
   bottom: 33%;
+
   /* transition: all 0.7s ease;*/
 }
 

@@ -6,10 +6,11 @@
       v-if="isPage === 1"
       :class="[backgrounTransition ? 'backgrounTransition': '']"
     >
-      <div class="home-text-wrap text-blur-out">
-        <span class="text-focus-in-f">Espacio terapéutico para</span>
-        <span class="text-focus-in-1 text-espaced">la re-invensión</span>
-        <span class="text-focus-in-2">de uno mismo.</span>
+      <div class="home-text-wrap">
+        <span class="text-focus-in-1">Espacio terapéutico para</span>
+        <span class="text-focus-in-2 text-espaced">la re-invensión</span>
+        <span class="text-focus-in-f">de uno mismo</span>
+        <div @click="goToPage2" class="text-focus-in-f entra-btn">empezar</div>
       </div>
     </div>
     <!-- PRINCIPLES LIST-->
@@ -26,7 +27,7 @@
           @backToListPrinciples="backToListPrinciples"
         >
           <template slot="title">habla</template>
-          <template slot="quote-1">Somos nuestra historia, única e irrepetible.</template>
+          <template slot="quote-1">Somos nuestra historia, única e irrepetible</template>
           <template slot="sentence-1">
             <p>Nuestras experiencias nos hacen únicos e irrepetibles. Todos sentimos tristeza o amor, sin embargo cada uno lo vivimos desde nuestro modo singular de estar en el mundo.</p>
             <p>
@@ -35,12 +36,12 @@
             </p>
             <p></p>
           </template>
-          <template slot="quote-2">La palabra es sanadora.</template>
+          <template slot="quote-2">La palabra es sanadora</template>
           <template slot="sentence-2">
             <p>Nuestros conflictos no resueltos son nudos de palabras, trozos de historias desconectados de nuestros sentidos más profundos.</p>
             <p>Hay cosas que cuesta decirlas en voz alta, incluso decírnoslo a nosotros mismos. Es por eso que "hablar" hace circular lo que está detenido, produciendo nuevos sentidos y emociones.</p>
           </template>
-          <template slot="quote-3">Un espacio honesto y seguro.</template>
+          <template slot="quote-3">Un espacio honesto y seguro</template>
           <template slot="sentence-3">
             <p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de una escucha confidencial, respetuosa y sin juicios.</p>
             <br />
@@ -57,7 +58,7 @@
           @backToListPrinciples="backToListPrinciples"
         >
           <template slot="title">descubre</template>
-          <template slot="quote-1">Un punto ciego para nosotros mismos.</template>
+          <template slot="quote-1">Un punto ciego para nosotros mismos</template>
           <template slot="sentence-1">
             <p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos.</p>
             <p>Estamos tan envueltos en nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>
@@ -66,7 +67,7 @@
           <template slot="sentence-2">
             <p>Estamos rodeados de exigencias de éxito que se confunden con lo que esperamos de nosotros mismos. Estos ideales los defendemos, a pesar de que esclavizan nuestros propósitos. La terapia permite un punto de vista crítico que nos libera de lo que suponemos que los demás esperan de nosotros.</p>
           </template>
-          <template slot="quote-3">Un punto de escucha diferente.</template>
+          <template slot="quote-3">Un punto de escucha diferente</template>
           <template slot="sentence-3">
             <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta de que somos nosotros los que tejemos nuestro relato.</p>
           </template>
@@ -82,9 +83,9 @@
           <template slot="title">re-significa</template>
           <template slot="quote-1">¿Qué quiero?</template>
           <template slot="sentence-1">
-            <p>¿Qué quiero? es una pregunta que cambia con el tiempo, por lo que es necesario darle cada vez un nuevo sentido. En algún momento del proceso terapéutico nos hacemos esta pregunta, para darnos cuenta de que lo importante es que cada uno debe elegir su respuesta.</p>
+            <p>¿Qué quiero? es una pregunta que cambia con el tiempo, por lo que es necesario darle cada vez un nuevo sentido. En algún momento del proceso terapéutico nos hacemos esta pregunta, para darnos cuenta de que lo importante es que cada uno debe elegir su respuesta</p>
           </template>
-          <template slot="quote-2">Nadie puede hacerse cargo de nuestro deseo.</template>
+          <template slot="quote-2">Nadie puede hacerse cargo de nuestro deseo</template>
           <template slot="sentence-2">
             <p>
               Somos nuestra historia, pero sobre todo somos lo que hacemos con ella. Es importante darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que vivimos, sino de la posición que tomamos frente a ellos para poder
@@ -96,7 +97,7 @@
             </p>
           </template>
 
-          <template slot="quote-3">Sentido desde tus propósitos.</template>
+          <template slot="quote-3">Sentido desde tus propósitos</template>
           <template slot="sentence-3">
             <p>Todos buscamos una vida significativa, que tenga sentido. Dar sentido es cómo tomar una brújula para orientarnos, pero también es sentir desde nuestro cuerpo, y sobre todo volver significantes nuestros propósitos.</p>
           </template>
@@ -110,15 +111,15 @@
           @backToListPrinciples="backToListPrinciples"
         >
           <template slot="title">crea</template>
-          <template slot="quote-1">La terapia es un acto creativo.</template>
+          <template slot="quote-1">La terapia es un acto creativo</template>
           <template slot="sentence-1">
             <p>Cambiar requiere de un acto creativo sobre uno mismo. El espacio terapéutico es como un taller de invención en donde cada uno pueda re-inventarse.</p>
           </template>
-          <template slot="quote-2">Romper, construir, actuar.</template>
+          <template slot="quote-2">Romper, construir, actuar</template>
           <template slot="sentence-2">
             <p>Muchas veces necesitamos romper para poder volver a construir. La terapia es principalmente una experiencia de ruptura y construcción de sentidos y emociones. Es un proceso en el que se trata de inventar nuestra manera de actuar conforme a nuestro deseo.</p>
           </template>
-          <template slot="quote-3">Crear tu modo único de habitar el mundo.</template>
+          <template slot="quote-3">Crear tu modo único de habitar el mundo</template>
           <template slot="sentence-3">
             <p>La terapia no tiene porque ser una carrera, y tampoco existe la píldora mágica, nadie se cura de la vida!</p>
             <br />
@@ -203,7 +204,7 @@ export default {
   },
   methods: {
     startNavigation() {
-      let me = this;
+      //   let me = this;
       this.slideIn = true;
       let page = this.$route.meta.page;
       let principle = this.$route.meta.principle;
@@ -221,8 +222,8 @@ export default {
         }
       } else {
         setTimeout(function() {
-          me.goToPage2();
-        }, 3000);
+          //   me.goToPage2();
+        }, 10000);
       }
     },
     goTopage(page) {
@@ -256,15 +257,19 @@ export default {
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
-  position: absolute;
-  bottom: 3%;
-  right: 3%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   &:hover {
     background: url("../assets/icono_whatsapp_gris.svg");
   }
+  @media only screen and (max-width: 768px) {
+    height: 40px;
+    width: 40px;
+  }
 }
 .main-wrap {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background: -webkit-gradient(
     linear,
@@ -279,13 +284,13 @@ export default {
 }
 
 .page-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
 .principles-wrap {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -311,6 +316,22 @@ export default {
   @media only screen and (max-width: 768px) {
     font-size: 20px !important;
   }
+  .entra-btn {
+    border-bottom: 3px solid #ffeb99;
+    margin: 60px auto 0;
+    width: 125px;
+    font-family: 'Lato', sans-serif;
+    font-size: 19px;
+    border: 2px solid #ffeb99;
+    padding: 3px;
+    text-align: center;
+    height: 22px;
+    &:hover {
+      // border: 2px solid #2c3e50;
+      background: #ffeb99;
+      color: grey;
+    }
+  }
 }
 
 .home-text-wrap span {
@@ -328,7 +349,7 @@ export default {
 }
 
 .nav-dots-component {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   left: 0;
   right: 0;

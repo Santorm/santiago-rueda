@@ -76,38 +76,45 @@ export default {
     };
   },
   mounted() {
-    let element = document.querySelector(".principle-selected-wrap")
-    if(element){
-    //element.addEventListener("scroll", this.handleScroll);
-    element.addEventListener("touchstart", this.handleTouchStart);
-    element.addEventListener("touchend", this.handleTouchEnd);
+    let element = document.querySelector(".principle-selected-wrap");
+    if (element) {
+      //element.addEventListener("scroll", this.handleScroll);
+      element.addEventListener("touchstart", this.handleTouchStart);
+      element.addEventListener("touchend", this.handleTouchEnd);
     }
   },
   destroyed() {
-    let element = document.querySelector(".principle-selected-wrap")
-    if(element){
-    //element.removeEventListener("scroll", this.handleScroll);
-    element.removeEventListener("touchstart", this.handleTouchStart);
-    element.removeEventListener("touchend", this.handleTouchEnd);
+    let element = document.querySelector(".principle-selected-wrap");
+    if (element) {
+      //element.removeEventListener("scroll", this.handleScroll);
+      element.removeEventListener("touchstart", this.handleTouchStart);
+      element.removeEventListener("touchend", this.handleTouchEnd);
     }
   },
   methods: {
-    handleTouchStart(event) {      
-      this.touchStartX = event.changedTouches[0].clientX
-      this.touchStartY = event.changedTouches[0].clientY
+    handleTouchStart(event) {
+      // this.touchStartX = event.changedTouches[0].clientX
+      this.touchStartY = event.changedTouches[0].clientY;
+      this.touchStartTime = event.timeStamp
     },
     handleTouchEnd(event) {
-      let isScrollingNext = false
-      let isScrollingBack = false
-      
-      this.touchEndX = event.changedTouches[0].clientX
-      this.touchEndY = event.changedTouches[0].clientY
-      isScrollingNext =  this.touchStartY - this.touchEndY > -30
-      isScrollingBack =  this.touchStartY - this.touchEndY < 30
-      if(isScrollingNext && this.quoteSelected < 3){
-        this.quoteSelected++
-      }else if (isScrollingBack && this.quoteSelected > 1){
-         this.quoteSelected--
+      this.touchEndTime = event.timeStamp
+      console.log(this.touchEndTime - this.touchStartTime)
+      if((this.touchEndTime - this.touchStartTime) > 300){
+        return
+      }
+      console.log("handleTouchEnd", event.timeStamp);
+      let isScrolling = false;
+      // this.touchEndX = event.changedTouches[0].clientX
+      this.touchEndY = event.changedTouches[0].clientY;
+      let isScrollingNext = this.touchStartY - this.touchEndY > 0
+      isScrolling = Math.abs(this.touchStartY - this.touchEndY) > 75;
+      if (isScrolling) {
+        if (isScrollingNext && this.quoteSelected < 3) {
+          this.quoteSelected++;
+        } else if (!isScrollingNext && this.quoteSelected > 1) {
+          this.quoteSelected--;
+        }
       }
     },
     backToListPrinciples() {
@@ -124,7 +131,8 @@ export default {
 <style lang="scss" scoped>
 .principle-selected-wrap {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 540px;
   display: flex;
   overflow-y: auto;
   flex-direction: row;
@@ -152,9 +160,9 @@ export default {
       margin-bottom: 40px;
       z-index: 1;
       @media only screen and (max-width: 768px) {
-        font-size: 75px;
+        font-size: 60px;
         margin-bottom: 10px;
-        margin-top: 80px;
+        margin-top: 50px;
       }
       .under-line-title {
         height: 8px;
@@ -166,7 +174,7 @@ export default {
         border-radius: 2px;
 
         @media only screen and (max-width: 768px) {
-          top: 55px;
+          top: 45px;
           height: 5px;
         }
       }
@@ -176,6 +184,7 @@ export default {
       font-family: "Lato", sans-serif;
       font-size: 1.7vw;
       font-weight: 300;
+      user-select: none;
 
       @media only screen and (max-width: 768px) {
         font-size: calc(0.8em + 1vw);
@@ -220,7 +229,7 @@ export default {
       width: 100%;
       font-size: calc(1em + 1vw);
       line-height: 62px;
-      padding: 4% 4% 80px;
+      padding: 4% 4% 70px;
       height: 60%;
       justify-content: center;
       text-align: justify;
@@ -247,7 +256,7 @@ export default {
       margin: 20px 0;
       line-height: 2.5vw;
       @media only screen and (max-width: 768px) {
-        line-height: 18px;
+        line-height: 19px;
       }
     }
   }
@@ -279,13 +288,17 @@ export default {
   overflow: hidden;
 
   @media only screen and (max-width: 768px) {
-    top: 22px;
+    top: 15px;
     left: 10px;
   }
 
   img {
     height: 50px;
     width: 50px;
+    @media only screen and (max-width: 768px) {
+      height: 36px;
+      width: 36px;
+    }
   }
 }
 </style>

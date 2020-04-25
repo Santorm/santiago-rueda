@@ -22,10 +22,11 @@
                   :pages="pages"
                   @pageSelected="goTopage"
                   :currentPage="timelineStep"
-                  :isBio = true
+                  :isBio="true"
                 />
               </div>
               <div class="timeline-wrap">
+                <div class="name">Santiago Rueda</div>
                 <div class="line">
                   <div class="point">
                     <div class="point-title">{{step.hito}}</div>
@@ -48,7 +49,7 @@ import NavDots from "./NavDots";
 // santiago-rueda\src\components\Biography.vue
 export default {
   name: "bio",
-  components:  {NavDots},
+  components: { NavDots },
   data() {
     return {
       timelineStep: 0, //3,
@@ -208,12 +209,11 @@ export default {
     }
   },
   methods: {
-    goTopage(page){
-      console.log(page)
+    goTopage(page) {
       this.forwardDireccion = page > this.timelineStep;
-        setTimeout(() => {
-           this.timelineStep = page
-        }, 200);     
+      setTimeout(() => {
+        this.timelineStep = page;
+      }, 200);
     },
     handleTouchStart(event) {
       this.touchStartX = event.changedTouches[0].clientX;
@@ -225,8 +225,8 @@ export default {
 
       this.touchEndX = event.changedTouches[0].clientX;
       this.touchEndY = event.changedTouches[0].clientY;
-      isScrollingNext = this.touchStartX - this.touchEndX > 100; // || this.touchStartY - this.touchEndY > -30
-      isScrollingBack = this.touchStartX - this.touchEndX < -100; // this.touchStartY - this.touchEndY < 30
+      isScrollingNext = this.touchStartX - this.touchEndX > 75; // || this.touchStartY - this.touchEndY > -30
+      isScrollingBack = this.touchStartX - this.touchEndX < -75; // this.touchStartY - this.touchEndY < 30
 
       if (isScrollingNext && this.timelineStep < this.stepsContent.length - 1) {
         this.forwardDireccion = true;
@@ -282,7 +282,7 @@ export default {
 <style lang="scss" scoped>
 .bio-wrap {
   cursor: none;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
   background: #dddddd;
@@ -292,7 +292,7 @@ export default {
     /* padding: 100px 50px 50px 50px; */
     /* -webkit-box-sizing: border-box; */
     /* box-sizing: border-box; */
-    position: absolute;
+    position: fixed;
     /* top: 0; */
     /* left: 0; */
     //santiago-rueda\src\components\Biography.vue
@@ -306,9 +306,9 @@ export default {
     opacity: 0.6;
     @media only screen and (max-width: 768px) {
       background-size: cover;
-      height: calc(100% - 100px);
       background-position-x: center;
       opacity: 0.3;
+      bottom: 100px;
     }
   }
   .content-wrap {
@@ -346,7 +346,7 @@ export default {
           font-size: 20px;
           @media only screen and (max-width: 768px) {
             font-size: 16px;
-            line-height: 18px;
+            line-height: 19px;
           }
         }
         .timeline-wrap {
@@ -357,6 +357,13 @@ export default {
           right: -50px;
           @media only screen and (max-width: 768px) {
             right: -3%;
+          }
+
+          .name {
+            position: relative;
+            top: -30px;
+            right: 50px;
+            font-size: 30px;
           }
 
           .line {
@@ -416,6 +423,10 @@ export default {
       }
     }
   }
+}
+
+.nav-dots-component {
+  margin-top: 20px;
 }
 
 .slideforward-enter-active {
