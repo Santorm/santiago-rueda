@@ -1,69 +1,39 @@
 <template>
-  <div :class="['principle-selected-wrap', 'principle-selected-'+index]">
+  <div :class="['principle-selected-wrap', 'principle-selected-'+principle.id]">
     <div @click="backToListPrinciples" class="back-icon text-focus-in-1">
       <img src="../assets/icono_back blanco.svg" alt="Volver" />
     </div>
     <div class="quotes-wrap">
       <span class="title">
         <div class="under-line-title"></div>
-        <slot name="title"></slot>
+        {{principle.title}}
+        <!-- <slot name="title"></slot> -->
       </span>
-      <div class="quotes">
+      <div class="quotes" v-for="sentence in principle.sentences" :key="sentence.id">
         <div
           class="quote"
-          @click="selectQuote(1)"
-          @mouseover="selectQuote(1)"
-          :class="[quoteSelected === 1 ? 'active':'']"
+          :class="[quoteSelected === sentence.id ? 'active':'']"
+          @click="selectQuote(sentence.id)"
+          @mouseover="selectQuote(sentence.id)"
         >
-          <span>
-            <slot name="quote-1"></slot>
-          </span>
-          <!-- <div class="under-line"></div> -->
-        </div>
-        <div
-          class="quote"
-          @click="selectQuote(2)"
-          @mouseover="selectQuote(2)"
-          :class="[quoteSelected === 2 ? 'active':'']"
-        >
-          <span>
-            <slot name="quote-2"></slot>
-          </span>
-          <!-- <div class="under-line"></div> -->
-        </div>
-        <div
-          class="quote"
-          @click="selectQuote(3)"
-          @mouseover="selectQuote(3)"
-          :class="[quoteSelected === 3 ? 'active':'']"
-        >
-          <span>
-            <slot name="quote-3"></slot>
-          </span>
-          <!-- <div class="under-line"></div> -->
+          <span>{{sentence.quote}}</span>
         </div>
       </div>
     </div>
     <div class="sentences">
-      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 1">
-        <div class="comillas">"</div>
-        <slot name="sentence-1"></slot>
-      </div>
-      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 2">
-        <span class="comillas">"</span>
-        <slot name="sentence-2"></slot>
-      </div>
-      <div class="sentence text-focus-in-0-5" v-show="quoteSelected === 3">
-        <span class="comillas">"</span>
-        <slot name="sentence-3"></slot>
-      </div>
+      <transition :name="isScrollingNext ? 'slide-next' : 'slide-back'">
+        <div :key="quoteSelected" class="sentence">
+          <div class="comillas">"</div>
+          <span v-html="getSentenceContent"></span>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["index"],
+  props: ["principle"],
   data() {
     return {
       // isPage1: true,
@@ -72,8 +42,24 @@ export default {
       slideIn: false,
       principlesSelectedMode: false,
       selectedElement: null,
-      quoteSelected: 1
+      quoteSelected: 1,
+      isScrollingNext: true,
+      principlesNavByScroll: false
     };
+  },
+  watch: {
+    quoteSelected: function(newVal, oldVal) {
+      if (newVal > oldVal) {
+        this.isScrollingNext = true;
+      } else {
+        this.isScrollingNext = false;
+      }
+    },
+    principle: function() {
+      if(! this.principlesNavByScroll){
+        this.quoteSelected = 1;
+      }
+    }
   },
   mounted() {
     let element = document.querySelector(".principle-selected-wrap");
@@ -91,34 +77,66 @@ export default {
       element.removeEventListener("touchend", this.handleTouchEnd);
     }
   },
+  computed: {
+    getSentenceContent() {
+      return this.principle.sentences[this.quoteSelected - 1].content;
+    }
+  },
   methods: {
     handleTouchStart(event) {
       // this.touchStartX = event.changedTouches[0].clientX
       this.touchStartY = event.changedTouches[0].clientY;
-      this.touchStartTime = event.timeStamp
+      this.touchStartTime = event.timeStamp;
     },
     handleTouchEnd(event) {
-      this.touchEndTime = event.timeStamp
-      console.log(this.touchEndTime - this.touchStartTime)
-      if((this.touchEndTime - this.touchStartTime) > 300){
-        return
+      this.principlesNavByScroll = false
+      this.touchEndTime = event.timeStamp;
+      if (this.touchEndTime - this.touchStartTime > 300) {
+        return;
       }
-      console.log("handleTouchEnd", event.timeStamp);
       let isScrolling = false;
       // this.touchEndX = event.changedTouches[0].clientX
       this.touchEndY = event.changedTouches[0].clientY;
-      let isScrollingNext = this.touchStartY - this.touchEndY > 0
+      this.isScrollingNext = this.touchStartY - this.touchEndY > 0;
       isScrolling = Math.abs(this.touchStartY - this.touchEndY) > 75;
-      if (isScrolling) {
-        if (isScrollingNext && this.quoteSelected < 3) {
-          this.quoteSelected++;
-        } else if (!isScrollingNext && this.quoteSelected > 1) {
-          this.quoteSelected--;
-        }
+
+      if (!isScrolling) {
+        return;
       }
+      //  setTimeout(() => {
+      if (
+        !this.isScrollingNext &&
+        this.quoteSelected === 1 &&
+        this.principle.id !== 1
+      ) {
+        this.quoteSelected = 3;
+        this.$emit("navigatePrinciples", "back");
+        this.principlesNavByScroll = true
+        // this.isScrollingNext = true
+        return;
+      }
+
+      if (
+        this.isScrollingNext &&
+        this.quoteSelected === 3 &&
+        this.principle.id !== 4
+      ) {
+        this.quoteSelected = 1;
+        this.$emit("navigatePrinciples", "next");
+        // this.isScrollingNext = false
+        return;
+      }
+
+      if (this.isScrollingNext && this.quoteSelected < 3) {
+        this.quoteSelected++;
+      }
+
+      if (!this.isScrollingNext && this.quoteSelected > 1) {
+        this.quoteSelected--;
+      }
+      //  }, 500);
     },
     backToListPrinciples() {
-      // this.$emit("backToListPrinciples");
       this.$router.push({ path: "../manifiesto" });
     },
     selectQuote(quote) {
@@ -220,7 +238,7 @@ export default {
     justify-content: flex-end;
     flex-flow: column;
     font-size: 1.9vw;
-    text-align: end;
+    text-align: justify;
     padding: 10px 50px 100px 60px;
     box-sizing: border-box;
     overflow: hidden;

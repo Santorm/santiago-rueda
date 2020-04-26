@@ -320,14 +320,14 @@ table {
 }
 
 .slide-back-enter-active {
-  -webkit-animation: slide-in-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  -webkit-animation: slide-in-top 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .slide-back-leave-active {
-  -webkit-animation: slide-out-bottom 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+  -webkit-animation: slide-out-bottom 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53)
     both;
-  animation: slide-out-bottom 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: slide-out-bottom 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 /*

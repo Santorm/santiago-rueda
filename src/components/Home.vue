@@ -18,7 +18,14 @@
     <!-- PRINCIPLES -->
     <div class="page-container slide-in-right-1" v-if="isPage === 3">
       <div class="principles-wrap">
+        <principle
+          class="slide-in-right-1"
+          @backToListPrinciples="backToListPrinciples"
+          @navigatePrinciples="navigatePrinciples"
+          :principle="principles[itemSelected - 1]"
+        ></principle>
         <!-- PRINCIPLE 1-->
+        <!--
         <principle
           class="slide-in-right-1"
           key="1"
@@ -32,7 +39,6 @@
             <p>Nuestras experiencias nos hacen únicos e irrepetibles. Todos sentimos tristeza o amor, sin embargo cada uno lo vivimos desde nuestro modo singular de estar en el mundo.</p>
             <p>
               Al tratar con personas y no con etiquetas, la terapia se vuelve un proceso 'hecho a medida', sensible a la particular historia de cada uno.
-              <!-- donde podemos descubrir a través de nuestra historia el lugar desde el que entendemos el mundo. -->
             </p>
             <p></p>
           </template>
@@ -48,8 +54,10 @@
             <p>La terapia es un espacio privilegiado donde podemos tener la libertad de encontrarnos con nosotros mismos.</p>
           </template>
         </principle>
+        -->
 
         <!-- PRINCIPLE 2-->
+        <!--
         <principle
           class="slide-in-right-1"
           key="2"
@@ -72,7 +80,9 @@
             <p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta de que somos nosotros los que tejemos nuestro relato.</p>
           </template>
         </principle>
+        -->
         <!-- PRINCIPLE 3-->
+        <!--
         <principle
           class="slide-in-right-1"
           key="3"
@@ -89,12 +99,7 @@
           <template slot="sentence-2">
             <p>
               Somos nuestra historia, pero sobre todo somos lo que hacemos con ella. Es importante darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que vivimos, sino de la posición que tomamos frente a ellos para poder
-              hacernos cargo de nuestro deseo.
-              <!-- Nadie puede hacerse cargo de nuestro deseo. 
-            
-              Parte del proceso es entender cómo estamos implicados en lo qué sucede en nuestras vidas. Esto significa comprender qué de nosotros se pone en juego en nuestro malestar. De esta manera podemos no retroceder ante nuestro deseo y hacernos responsables.-->
-              <!-- ¿Cómo estamos implicados en las cosas que nos suceden? Esta pregunta nos interpela, nos obliga a tomar posición y a aceptar que a pesar de nuestras contradicciones, podemos hacernos cargo de nuestro deseo y poder ganar la libertad para re-inventarlo. -->
-            </p>
+              hacernos cargo de nuestro deseo.</p>
           </template>
 
           <template slot="quote-3">Sentido desde tus propósitos</template>
@@ -102,7 +107,9 @@
             <p>Todos buscamos una vida significativa, que tenga sentido. Dar sentido es cómo tomar una brújula para orientarnos, pero también es sentir desde nuestro cuerpo, y sobre todo volver significantes nuestros propósitos.</p>
           </template>
         </principle>
+        -->
         <!-- PRINCIPLE 4-->
+        <!--
         <principle
           class="slide-in-right-1"
           key="4"
@@ -126,6 +133,7 @@
             <p>Piensa la terapia como una experiencia vital transformadora, que te permita encontrar la libertad necesaria para inventar tu modo único de estar en el mundo.</p>
           </template>
         </principle>
+        -->
       </div>
     </div>
     <a
@@ -166,7 +174,7 @@ export default {
   components: { Principle, PrincipleList, NavDots },
   data() {
     return {
-      itemSelected: null,
+      itemSelected: 0,
       isPage: 1,
       isInsidePrinciple: false,
       backgrounTransition: false,
@@ -191,6 +199,104 @@ export default {
           name: "principle4",
           page: 4
         }
+      ],
+      principles: [
+        {
+          id: 1,
+          title: "habla",
+          sentences: [
+            {
+              id: 1,
+              quote: "Somos nuestra historia, única e irrepetible",
+              content:
+                "<p>Nuestras experiencias nos hacen únicos e irrepetibles. Todos sentimos tristeza o amor, sin embargo cada uno lo vivimos desde nuestro modo singular de estar en el mundo.</p><p>Al tratar con personas y no con etiquetas, la terapia se vuelve un proceso 'hecho a medida', sensible a la particular historia de cada uno.</p>"
+            },
+            {
+              id: 2,
+              quote: "La palabra es sanadora",
+              content:
+                "<p>Nuestros conflictos no resueltos son nudos de palabras, trozos de historias desconectados de nuestros sentidos más profundos.</p><p>Hay cosas que cuesta decirlas en voz alta, incluso decírnoslo a nosotros mismos. Es por eso que 'hablar' hace circular lo que está detenido, produciendo nuevos sentidos y emociones.</p>"
+            },
+            {
+              id: 3,
+              quote: "Un espacio honesto y seguro",
+              content:
+                "<p>Un proceso terapéutico requiere honestidad para hablar de uno mismo. Es un acto de valentía y compromiso que necesita de una escucha confidencial, respetuosa y sin juicios.</p><br/><p>La terapia es un espacio privilegiado donde podemos tener la libertad de encontrarnos con nosotros mismos.</p>"
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: "descubre",
+          sentences: [
+            {
+              id: 1,
+              quote: "Un punto ciego para nosotros mismos",
+              content:
+                "<p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos.</p><p>Estamos tan envueltos en nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>"
+            },
+            {
+              id: 2,
+              quote: "La libertad de elegir ser uno mismo",
+              content:
+                "<p>Estamos rodeados de exigencias de éxito que se confunden con lo que esperamos de nosotros mismos. Estos ideales los defendemos, a pesar de que esclavizan nuestros propósitos. La terapia permite un punto de vista crítico que nos libera de lo que suponemos que los demás esperan de nosotros.</p>"
+            },
+            {
+              id: 3,
+              quote: "Un punto de escucha diferente",
+              content:
+                "<p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta de que somos nosotros los que tejemos nuestro relato.</p>"
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: "re-significa",
+          sentences: [
+            {
+              id: 1,
+              quote: "¿Qué quiero?",
+              content:
+                "<p>¿Qué quiero? es una pregunta que cambia con el tiempo, por lo que es necesario darle cada vez un nuevo sentido. En algún momento del proceso terapéutico nos hacemos esta pregunta, para darnos cuenta de que lo importante es que cada uno debe elegir su respuesta</p>"
+            },
+            {
+              id: 2,
+              quote: "Nadie puede hacerse cargo de nuestro deseo",
+              content:
+                "<p>Somos nuestra historia, pero sobre todo somos lo que hacemos con ella. Es importante darnos cuenta de que nuestra vida no depende tanto de los acontecimientos que vivimos, sino de la posición que tomamos frente a ellos para poder hacernos cargo de nuestro deseo.</p>"
+            },
+            {
+              id: 3,
+              quote: "Sentido desde tus propósitos",
+              content:
+                "<p>Todos buscamos una vida significativa, que tenga sentido. Dar sentido es cómo tomar una brújula para orientarnos, pero también es sentir desde nuestro cuerpo, y sobre todo volver significantes nuestros propósitos.</p>"
+            }
+          ]
+        },
+        {
+          id: 4,
+          title: "crea",
+          sentences: [
+            {
+              id: 1,
+              quote: "La terapia es un acto creativo",
+              content:
+                "<p>Cambiar requiere de un acto creativo sobre uno mismo. El espacio terapéutico es como un taller de invención en donde cada uno pueda re-inventarse.</p>"
+            },
+            {
+              id: 2,
+              quote: "Romper, construir, actuar",
+              content:
+                "<p>Muchas veces necesitamos romper para poder volver a construir. La terapia es principalmente una experiencia de ruptura y construcción de sentidos y emociones. Es un proceso en el que se trata de inventar nuestra manera de actuar conforme a nuestro deseo.</p>"
+            },
+            {
+              id: 3,
+              quote: "Crear tu modo único de habitar el mundo",
+              content:
+                "<p>La terapia no tiene porque ser una carrera, y tampoco existe la píldora mágica, nadie se cura de la vida!</p><br/><p>Piensa la terapia como una experiencia vital transformadora, que te permita encontrar la libertad necesaria para inventar tu modo único de estar en el mundo.</p>"
+            }
+          ]
+        }
       ]
     };
   },
@@ -203,6 +309,15 @@ export default {
     this.startNavigation();
   },
   methods: {
+    navigatePrinciples(direction) {
+      console.log("navigatePrinciples: ", direction);
+      if(direction === 'next'){
+        this.itemSelected++
+      }
+      if(direction === 'back'){
+        this.itemSelected--
+      }
+    },
     startNavigation() {
       let me = this;
       this.slideIn = true;
@@ -222,7 +337,7 @@ export default {
         }
       } else {
         setTimeout(function() {
-           me.goToPage2();
+          me.goToPage2();
         }, 5000);
       }
     },
@@ -240,6 +355,7 @@ export default {
       }, 1500);
     },
     principleSelected(index) {
+      console.log("principleSelected: ", index);
       this.itemSelected = index;
       this.isPage = 3;
     },
@@ -321,7 +437,7 @@ export default {
     border-bottom: 3px solid #ffeb99;
     margin: 60px auto 0;
     width: 125px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 19px;
     border: 2px solid #ffeb99;
     padding: 3px;

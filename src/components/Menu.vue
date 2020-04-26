@@ -32,9 +32,9 @@
           <!-- <div class="logo"></div> -->
           <div class="menu-intro">
             <p class="name">
-              Hola!
-              <br />conoce más
-              <br />acerca de:
+              Hola!<br/>Soy Santiago,
+              <br />te invito a conocer
+              <br /> más acerca de:
             </p>
           </div>
           <div class="page-links">
@@ -55,7 +55,7 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link to="/bio">quien soy</router-link>
+              <router-link to="/bio">mi recorrido</router-link>
             </div>
             <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
             <router-link to="/bio">Salúdame</router-link>

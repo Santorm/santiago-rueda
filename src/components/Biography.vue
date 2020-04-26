@@ -3,7 +3,7 @@
     <div class="photo"></div>
     <div class="content-wrap">
       <div class="content-fixed">
-        <div class="name">Santiago Rueda</div>
+        <!-- <div class="name">mi recorrido</div> -->
         <div v-for="step in stepsContent" :key="step.step">
           <transition :name="forwardDireccion ? 'slideforward' :'slideback'">
             <div class="content-text" v-if="step.step === timelineStep">
@@ -91,7 +91,7 @@ export default {
           step: 0,
           hito: "de donde vengo...",
           text:
-            "<p>Mi historia empieza en un lugar que divide en dos al planeta, un centro y a la vez una periferia. Ecuador, un pequeño país, de grandes contrastes, diverso en sus bellezas y realidades. Ahora vivo en Barcelona, mi hogar desde hace ya varios años, donde he podido crecer y re-inventarme tanto en lo personal, como profesionalmente.</p> "
+            "<p>Soy Santiago Rueda, mi historia empieza en un lugar que divide en dos al planeta, un centro y a la vez una periferia. Ecuador, un pequeño país, de grandes contrastes, diverso en sus bellezas y realidades. Ahora vivo en Barcelona, mi hogar desde hace ya varios años, donde he podido crecer y re-inventarme tanto en lo personal, como profesionalmente.</p> "
         },
         {
           step: 1,
@@ -323,7 +323,7 @@ export default {
     box-sizing: border-box;
     // overflow-x: scroll;
     @media only screen and (max-width: 768px) {
-      padding: 60px 3% 50px 3%;      
+      padding: 60px 3% 50px 3%;
     }
     .content-fixed {
       position: relative;
@@ -395,6 +395,9 @@ export default {
                 width: 250px;
                 padding: 5px;
                 border-radius: 5px;
+                @media only screen and (max-width: 768px) {
+                  width: 160px;
+                }
               }
             }
           }
