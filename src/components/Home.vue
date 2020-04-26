@@ -204,7 +204,7 @@ export default {
   },
   methods: {
     startNavigation() {
-      //   let me = this;
+      let me = this;
       this.slideIn = true;
       let page = this.$route.meta.page;
       let principle = this.$route.meta.principle;
@@ -222,8 +222,8 @@ export default {
         }
       } else {
         setTimeout(function() {
-          //   me.goToPage2();
-        }, 10000);
+           me.goToPage2();
+        }, 5000);
       }
     },
     goTopage(page) {
@@ -317,6 +317,7 @@ export default {
     font-size: 20px !important;
   }
   .entra-btn {
+    user-select: none;
     border-bottom: 3px solid #ffeb99;
     margin: 60px auto 0;
     width: 125px;

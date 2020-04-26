@@ -3,6 +3,7 @@
     <div class="photo"></div>
     <div class="content-wrap">
       <div class="content-fixed">
+        <div class="name">Santiago Rueda</div>
         <div v-for="step in stepsContent" :key="step.step">
           <transition :name="forwardDireccion ? 'slideforward' :'slideback'">
             <div class="content-text" v-if="step.step === timelineStep">
@@ -26,7 +27,6 @@
                 />
               </div>
               <div class="timeline-wrap">
-                <div class="name">Santiago Rueda</div>
                 <div class="line">
                   <div class="point">
                     <div class="point-title">{{step.hito}}</div>
@@ -308,7 +308,7 @@ export default {
       background-size: cover;
       background-position-x: center;
       opacity: 0.3;
-      bottom: 100px;
+      // bottom: 100px;
     }
   }
   .content-wrap {
@@ -323,12 +323,18 @@ export default {
     box-sizing: border-box;
     // overflow-x: scroll;
     @media only screen and (max-width: 768px) {
-      padding: 100px 3% 50px 3%;
+      padding: 60px 3% 50px 3%;      
     }
     .content-fixed {
       position: relative;
       width: 100%;
       height: 100%;
+      .name {
+        position: absolute;
+        bottom: 60px;
+        // right: 50px;
+        font-size: 30px;
+      }
       .content-text {
         position: absolute;
         padding-top: 50px;
@@ -357,15 +363,8 @@ export default {
           right: -50px;
           @media only screen and (max-width: 768px) {
             right: -3%;
+            // background: #dddddd;
           }
-
-          .name {
-            position: relative;
-            top: -30px;
-            right: 50px;
-            font-size: 30px;
-          }
-
           .line {
             position: absolute;
             bottom: 100px;

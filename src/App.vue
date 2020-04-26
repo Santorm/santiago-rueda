@@ -65,6 +65,7 @@ font-family: 'Playfair Display', serif;
 
 html,
 body {
+  user-select: none;
   height: 100% !important;
   width: 100% !important;
 }

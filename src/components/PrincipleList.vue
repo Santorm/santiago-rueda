@@ -72,16 +72,17 @@ export default {
   height: 100%;
   display: flex;
   justify-content: center;
- 
   align-items: flex-end;
   transition: width 1.5s ease-out;
-  // font-family: 'Palanquin', sans-serif;
-  font-family: 'Playfair Display, serif';
-  // font-family: "Playfair Display", serif;
+  
   color: #ffffff;
 }
 
-.principles span {
+.principles-title {
+  font-family: 'Playfair', serif !important;
+}
+
+.principles span  {
   font-size: 45px;
   width: 100%;
   text-align: end;
