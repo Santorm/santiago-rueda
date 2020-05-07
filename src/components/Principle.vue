@@ -14,9 +14,9 @@
           class="quote"
           :class="[quoteSelected === sentence.id ? 'active':'']"
           @click="selectQuote(sentence.id)"
-          @mouseover="selectQuote(sentence.id)"
         >
           <span>{{sentence.quote}}</span>
+          <div class="under-line"></div>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ export default {
       }
     },
     principle: function() {
-      if(! this.principlesNavByScroll){
+      if (!this.principlesNavByScroll) {
         this.quoteSelected = 1;
       }
     }
@@ -89,7 +89,7 @@ export default {
       this.touchStartTime = event.timeStamp;
     },
     handleTouchEnd(event) {
-      this.principlesNavByScroll = false
+      this.principlesNavByScroll = false;
       this.touchEndTime = event.timeStamp;
       if (this.touchEndTime - this.touchStartTime > 300) {
         return;
@@ -111,7 +111,7 @@ export default {
       ) {
         this.quoteSelected = 3;
         this.$emit("navigatePrinciples", "back");
-        this.principlesNavByScroll = true
+        this.principlesNavByScroll = true;
         // this.isScrollingNext = true
         return;
       }
@@ -203,29 +203,49 @@ export default {
       font-size: 1.7vw;
       font-weight: 300;
       user-select: none;
+      color: #326da0;
 
       @media only screen and (max-width: 768px) {
         font-size: calc(0.8em + 1vw);
       }
       .quote {
         margin: 0 auto 12px;
+        //text-decoration: underline;
+        span {
+          border-bottom: 1px solid currentColor;
+          // text-decoration: underline;
+
+        }
         &.active {
           font-weight: 400;
-          text-decoration: underline;
+          
+          /*
+          .under-line {
+            height: 2px;
+            width: 100%;
+          }
+          */
         }
-        &:hover {
+        &:hover:not(.active) {
           // background-color: #ffffff;
           // transition: all 0.5s ease-in;
+          font-weight: 400;
+          cursor: pointer;
           .under-line {
-            transition: all 0.5s ease-in;
+            transition: all 0.3s ease-in;
             width: 100%;
           }
         }
         .under-line {
-          height: 3px;
-          width: 0%;
-          background-color: #ffffff;
+          display: none;
+          height: 1px;
+          width: 90%;
+          background-color: #758fa5;;
           position: absolute;
+          @media only screen and (max-width: 768px) {
+            width: 80%;
+            height: 1px;
+          }
         }
       }
     }
@@ -304,6 +324,7 @@ export default {
   left: 30px;
   transition: all 1s ease;
   overflow: hidden;
+  cursor:pointer;
 
   @media only screen and (max-width: 768px) {
     top: 15px;

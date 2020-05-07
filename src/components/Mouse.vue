@@ -22,8 +22,7 @@ export default {
       return `transform: translateX(${this.xParent}px) translateY(${this.yParent}px) translateZ(0) translate3d(0, 0, 0);`;
     },
     cursorPoint() {
-      return `transform: translateX(${this.xChild - 3}px) translateY(${this
-        .yChild - 3}px) translateZ(0) translate3d(0, 0, 0);`;
+      return `transform: translateX(${this.xChild - 3}px) translateY(${this.yChild - 3}px) translateZ(0) translate3d(0, 0, 0);`;
     }
   },
   methods: {
@@ -39,7 +38,9 @@ export default {
   mounted() {
     let me = this
     document.addEventListener("mousemove", this.moveCursor);
+    document.addEventListener("mouseover", function(){me.hideCursor = false})
     document.addEventListener("mouseleave", function(){me.hideCursor = true})
+    document.addEventListener("mouseout", function(){me.hideCursor = true})
     document.addEventListener("mouseenter", function(){me.hideCursor = false})
   }
 };

@@ -46,7 +46,7 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link to="/manifiesto">el proceso terapéutico</router-link>
+              <router-link class="routerlink" to="/manifiesto">el proceso terapéutico</router-link>
             </div>
             <div
               :class="currentPage === 'bio' ? 'active': ''"
@@ -55,17 +55,11 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link to="/bio">mi recorrido</router-link>
+              <router-link class="routerlink" to="/bio">mi recorrido</router-link>
             </div>
-            <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal" @click="closeMenu">
-            <router-link to="/bio">Salúdame</router-link>
-            </div>-->
           </div>
           <div class="presentationData">
             <div class="logo"></div>
-            <!-- <div class="name" @click="closeMenu">
-            <router-link to="/bio">santiago rueda</router-link>
-            </div>-->
             <div class="city">Barcelona - terapia online</div>
             <div>
               <a href="mailto:hola@santiagoruedam.com" class="mail">hola@santiagoruedam.com</a>
@@ -126,6 +120,7 @@ export default {
   // position: relative;
   cursor: none !important;
   .menu {
+    background: linear-gradient(180deg, #effaff 0%, #d9e7ff 100%);
     position: absolute;
     width: 500px;
     left: 0;
@@ -136,7 +131,7 @@ export default {
     margin: 20px auto;
     height: calc(100% - 65px);
     top: 25px;
-    background: #ffff;
+    // background: #ffff;
     border-radius: 5px;
     z-index: 3;
     min-height: 350px;
@@ -182,16 +177,22 @@ export default {
           font-size: calc(1em + 0.2vw);
           // border-bottom: 1px solid #c5c5c5;
           // border-bottom: 1px solid #ffeb99;
+          .routerlink {
+            color: #326da0;
+            border-bottom: 1px solid currentColor;
+          }
           &.active {
-            border-bottom: 3px solid #ffeb99;
+            font-weight: 600;
+           // border-bottom: 3px solid #ffeb99;
           }
 
           &:hover {
             // border-bottom: 1px solid #ffeb99;
-            font-weight: bold;
+            font-weight: 600;
+            /*
             &:not(.active) {
               border-bottom: 1px solid #ffeb99;
-            }
+            }*/
           }
           a {
             text-decoration: none;
@@ -213,6 +214,7 @@ export default {
           // font-size: 16px;
         }
         .phone {
+          color: #326da0;
           display: block;
           margin-top: 5px;
           font-family: "Lato", sans-serif;
@@ -221,6 +223,7 @@ export default {
           text-decoration: none;
         }
         .mail {
+          color: #326da0;
           // font-family: "Zilla Slab", serif;
           // font-family: "Lato", sans-serif;
           // font-size: 12px;
