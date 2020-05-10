@@ -243,23 +243,10 @@ export default {
     },
     isStepVisible(step) {
       return step.step === this.timelineStep;
-      //  console.log('reeeturn: ', helpers.debounce(this.isCurrentStep(step), 500))
-      /*
-    setTimeout(() => { 
-      console.log('jhkjh: ', step.step === this.timelineStep)
-       return step.step === this.timelineStep
-      }, 500);
-      // return helpers.debounce(this.isCurrentStep(step), 500)
-      */
     },
     isCurrentStep(step) {
       return step === this.timelineStep;
     },
-    /*
-    handleScroll(event) {
-      console.log("handleScroll: ", event);
-    },
-    */
     handleWheel(event) {
       let forward = event.deltaY > 0;
       if (forward && this.timelineStep < this.stepsContent.length - 1) {

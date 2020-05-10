@@ -55,9 +55,15 @@ export default {
         this.isScrollingNext = false;
       }
     },
-    principle: function() {
+    principle: function(newValue, oldValue) {
       if (!this.principlesNavByScroll) {
         this.quoteSelected = 1;
+      }
+      
+      if(newValue.id > oldValue.id){
+        this.isScrollingNext = true;
+      }else {
+        this.isScrollingNext = false;
       }
     }
   },
@@ -229,7 +235,7 @@ export default {
         &:hover:not(.active) {
           // background-color: #ffffff;
           // transition: all 0.5s ease-in;
-          font-weight: 400;
+          // font-weight: 400;
           cursor: pointer;
           .under-line {
             transition: all 0.3s ease-in;

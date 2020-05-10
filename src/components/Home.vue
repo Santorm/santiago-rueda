@@ -199,7 +199,6 @@ export default {
   },
   methods: {
     navigatePrinciples(direction) {
-      console.log("navigatePrinciples: ", direction);
       if(direction === 'next'){
         this.itemSelected++
       }
@@ -244,7 +243,6 @@ export default {
       }, 1500);
     },
     principleSelected(index) {
-      console.log("principleSelected: ", index);
       this.itemSelected = index;
       this.isPage = 3;
     },
