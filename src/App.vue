@@ -70,9 +70,10 @@ body {
   width: 100% !important;
 }
 #app {
-  height: auto;
-  min-height: 100%;
+  height: 100vh;
+  // min-height: 100%;
   min-height: -webkit-fill-available;
+  min-height: auto;
   min-height: 500px;
   width: 100%;
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/

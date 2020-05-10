@@ -81,6 +81,8 @@ $base-color: #a4c5c6;
   width: 100%;
   height: 100%;
   background: $base-color;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .post-container {
