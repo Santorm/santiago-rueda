@@ -4,6 +4,11 @@ Vue.use(VueRouter)
 import router from './routes.js'
 import App from './App.vue'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+ 
+Vue.use(VueAxios, axios)
+
 
 // santiago-rueda\src\main.js
 Vue.config.productionTip = false

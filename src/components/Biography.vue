@@ -44,9 +44,6 @@
 <script>
 import helpers from "../helpers/helpers.js";
 import NavDots from "./NavDots";
-
-// santiago-rueda\src\helpers\helpers.js
-// santiago-rueda\src\components\Biography.vue
 export default {
   name: "bio",
   components: { NavDots },

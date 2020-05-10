@@ -70,7 +70,8 @@ body {
   width: 100% !important;
 }
 #app {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   min-height: -webkit-fill-available;
   min-height: 500px;
   width: 100%;

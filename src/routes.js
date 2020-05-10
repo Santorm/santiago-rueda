@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Biography from "./components/Biography";
+import Articles from "./components/Articles";
 import Home from "./components/Home.vue";
 Vue.use(VueRouter)
 
@@ -47,6 +48,9 @@ const routes = [
     },
     {
         path: '/bio', component: Biography
+    },
+    {
+        path: '/articulos', component: Articles
     }]
 
 
