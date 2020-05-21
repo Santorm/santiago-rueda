@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Biography from "./components/Biography";
 import Articles from "./components/Articles";
+import Terapia from "./components/Terapia";
 import Home from "./components/Home.vue";
 Vue.use(VueRouter)
 
@@ -51,6 +52,9 @@ const routes = [
     },
     {
         path: '/articulos', component: Articles
+    },
+    {
+        path: '/terapia', component: Terapia
     }]
 
 

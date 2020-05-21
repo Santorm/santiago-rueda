@@ -40,6 +40,15 @@
           <div class="page-links">
             <!-- <div class="link" @mouseenter="mouseHover" @mouseleave="mouseNormal">Principios</div> -->
             <div
+              :class="currentPage === 'terapia' ? 'active': ''"
+              class="link"
+              @mouseenter="mouseHover"
+              @mouseleave="mouseNormal"
+              @click="closeMenu"
+            >
+              <router-link class="routerlink" to="/terapia">la terapia psicoanalítica</router-link>
+            </div>
+            <div
               :class="currentPage === 'manifiesto' ? 'active': ''"
               class="link"
               @mouseenter="mouseHover"

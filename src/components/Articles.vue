@@ -90,8 +90,10 @@ $base-color: #a4c5c6;
   flex-direction: column;
   margin: 0 auto;
   padding: 150px 0 0;
+  width: 85%;
 
   .post-card-wrap {
+    box-sizing: border-box;
     margin: 20px auto;
     width: 100%;
     max-width: 900px;
