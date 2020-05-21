@@ -32,9 +32,10 @@
           <!-- <div class="logo"></div> -->
           <div class="menu-intro">
             <p class="name">
-              Hola!<br/>Soy Santiago,
+              Hola!
+              <br />Soy Santiago,
               <br />te invito a conocer
-              <br /> más acerca de:
+              <br />más acerca de:
             </p>
           </div>
           <div class="page-links">
@@ -46,7 +47,7 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link class="routerlink" to="/terapia">la terapia psicoanalítica</router-link>
+              <router-link class="routerlink" to="/terapia">la propuesta terapéutica</router-link>
             </div>
             <div
               :class="currentPage === 'manifiesto' ? 'active': ''"
@@ -65,6 +66,15 @@
               @click="closeMenu"
             >
               <router-link class="routerlink" to="/bio">mi recorrido</router-link>
+            </div>
+            <div
+              :class="currentPage === 'articulos' ? 'active': ''"
+              class="link"
+              @mouseenter="mouseHover"
+              @mouseleave="mouseNormal"
+              @click="closeMenu"
+            >
+              <router-link class="routerlink" to="/articulos">artículos</router-link>
             </div>
           </div>
           <div class="presentationData">
@@ -112,6 +122,14 @@ export default {
           break;
         case "/manifiesto":
           this.currentPage = "manifiesto";
+          this.mode = "light";
+          break;
+        case "/terapia":
+          this.currentPage = "terapia";
+          this.mode = "dark";
+          break;
+        case "/articulos":
+          this.currentPage = "articulos";
           this.mode = "light";
           break;
         default:
@@ -192,7 +210,7 @@ export default {
           }
           &.active {
             font-weight: 600;
-           // border-bottom: 3px solid #ffeb99;
+            // border-bottom: 3px solid #ffeb99;
           }
 
           &:hover {
@@ -248,7 +266,7 @@ export default {
 
   .overlay {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     min-height: auto;
     background: #00000082;

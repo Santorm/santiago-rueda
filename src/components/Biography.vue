@@ -63,6 +63,10 @@ export default {
         {
           name: "bio3",
           page: 2
+        },
+        {
+          name: "bio4",
+          page: 3
         }
       ],
       palete: [
@@ -88,7 +92,7 @@ export default {
           step: 0,
           hito: "de donde vengo...",
           text:
-            "<p>Soy Santiago Rueda, mi historia empieza en un lugar que divide en dos al planeta, un centro y a la vez una periferia. Ecuador, un pequeño país, de grandes contrastes, diverso en sus bellezas y realidades. Ahora vivo en Barcelona, mi hogar desde hace ya varios años, donde he podido crecer y re-inventarme tanto en lo personal, como profesionalmente.</p> "
+            "<p>Soy Santiago Rueda, mi historia empieza en un lugar que divide en dos al planeta, un centro y a la vez una periferia. Vengo de Ecuador, un pequeño país, de grandes contrastes, diverso en sus bellezas y realidades. Ahora vivo en Barcelona, mi hogar desde hace ya varios años, donde he podido crecer y re-inventarme tanto en lo personal, como profesionalmente.</p> "
         },
         {
           step: 1,
@@ -101,13 +105,23 @@ export default {
           hito: "Barcelona",
           text:
             "<p>La experiencia de venir a Barcelona me permitió ir rompiendo una burbuja que no me había dado cuenta que existía. El poner a prueba mis propios esquemas me ayudó a tomar una nueva posición como terapeuta, y descubrir también nuevas pasiones como la innovación social y el uso de la tecnología para intentar resolver retos sociales de forma colaborativa.<p/>"
-        }
-        /*,
+        },
         {
           step: 3,
           hito: "por donde he pasado...",
-          text: ""
-        }*/
+          text: `<ul>
+                  <li>Psicólogo Clínico, PUCE, Quito</li>
+                  <li>Máster en investigación e intervención psicosocial, UAB, Barcelona.</li>
+                  <li><a target="_blank" href='http://www.scb-icf.net/'>Sección Clínica de Barcelona</a>, Instituto del Campo Freudiano, Barcelona.</li>
+                  <li>Miembro de <a target="_blank" href='https://www.transformants.org'>Transformants</a>: Tecnología centrada en las personas, Barcelona.</li>
+                  <li>Miembro de <a target="_blank" href='https://wwww.economiahumana.org/habitat-humano'>Hábitat Humano</a>, Barcelona.</li>
+                  <li>Miembro de <a target="_blank" href='https://psicoanalisislacaniano.com/revistas-de-abcdiario/'>abcdario Freud<>Lacan</a>, Quito.</li>
+                  <li>Participante del grupo de estudios Spinozianos, Ateneu Barcelones.</li>
+                  <li>Participante y organizador de varios grupos de trabajo y eventos relacionados con el psicoanálisis y la filosofía.</li>
+                  <li>Innovación social y digital centrada en las personas.</li>
+                  <li>Más de 10 años de experiencia clínica en el ámbito educativo, de la salud pública y la consulta privada.</li>
+                </ul>`
+        }
       ],
       points: [
         {
@@ -264,6 +278,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ul {
+  list-style: square !important;
+}
 .bio-wrap {
   cursor: none;
   height: 100%;
@@ -322,7 +339,7 @@ export default {
       .content-text {
         position: absolute;
         padding-top: 50px;
-        text-align: end;
+        text-align: justify;
         width: 700px;
         right: 0;
         line-height: 25px;
