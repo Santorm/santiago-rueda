@@ -19,20 +19,20 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
+// import {xml2json} from "../helpers/xml2json"
 export default {
   name: "articles",
   data() {
     return {
       publishedPost: {},
-      posts: {}
+      posts: {},
+      postxmltojson: {}
     };
   },
   created() {
-    axios
-      .get(
+    axios.get(
         "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@santo.rueda"
       )
       .then(response => {
@@ -91,6 +91,10 @@ $base-color: #a4c5c6;
   margin: 0 auto;
   padding: 150px 0 0;
   width: 85%;
+
+  @media only screen and (max-width: 768px) {
+    padding: 50px 0 0;
+  }
 
   .post-card-wrap {
     box-sizing: border-box;
