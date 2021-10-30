@@ -59,6 +59,15 @@
               <router-link class="routerlink" to="/manifiesto">el proceso terapéutico</router-link>
             </div>
             <div
+              :class="currentPage === 'ensenanzas' ? 'active': ''"
+              class="link"
+              @mouseenter="mouseHover"
+              @mouseleave="mouseNormal"
+              @click="closeMenu"
+            >
+              <router-link class="routerlink" to="/ensenanzas">enseñanzas</router-link>
+            </div>
+            <div
               :class="currentPage === 'bio' ? 'active': ''"
               class="link"
               @mouseenter="mouseHover"

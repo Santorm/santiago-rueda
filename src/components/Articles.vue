@@ -36,7 +36,6 @@ export default {
         "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@santo.rueda"
       )
       .then(response => {
-        console.log("response: ", response.data);
         this.posts = response.data;
         this.getOtherfeeds();
       });
@@ -66,6 +65,18 @@ export default {
         link:
           "https://diecisiete.org/expediente/naturaleza-realidad-y-sujeto-hacia-un-paradigma-post-covid/",
         medio: "17, Instituto de Estudios Criticos",
+        medioIcon: "../../assets/articles/17logo.png"
+        // santiago-rueda\src\components\Articles.vue
+        // santiago-rueda\src\assets\articles\17logo.svg
+      },
+      {
+        published: true,
+        title: "Crisis: resistencia subjetiva, Big Data y lazo social",
+        description:
+          "Propuesta de la presentación en las Jornadas de la Escuela Lacaniana de Psicoanálisis: Crisis ¿Qué dicen los psicoanalistas?, acerca del control tecnológico y la subjetividad ",
+        link:
+          "http://crisis.jornadaselp.com/blog/crisis-resistencia-subjetiva-big-data-y-lazo-social/",
+        medio: "Escuela Lacaniana de Psicoanálisis",
         medioIcon: "../../assets/articles/17logo.png"
         // santiago-rueda\src\components\Articles.vue
         // santiago-rueda\src\assets\articles\17logo.svg

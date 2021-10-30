@@ -1,12 +1,13 @@
 // 0. If using a module system (e.g. via vue-cli), import Vue and VueRouter
 // and then call `Vue.use(VueRouter)`.
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 import Biography from "./components/Biography";
 import Articles from "./components/Articles";
 import Terapia from "./components/Terapia";
 import Home from "./components/Home.vue";
-Vue.use(VueRouter)
+import Ensenanzas from "./components/Ensenanzas.vue";
+Vue.use(VueRouter);
 
 // 1. Define route components.
 // These can be imported from other files
@@ -19,44 +20,56 @@ Vue.use(VueRouter)
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-    {
-        path: '/', component: Home,
-        children: [{
-            path: 'manifiesto',
+  {
+    path: "/",
+    component: Home,
+    children: [
+      {
+        path: "manifiesto",
+        component: Home,
+        meta: { page: 2 },
+        children: [
+          {
+            path: "habla",
             component: Home,
-            meta: { page: 2 },
-            children: [{
-                path: 'habla',
-                component: Home,
-                meta: { page: 3, principle: 1 }
-            },
-            {
-                path: 'descubre',
-                component: Home,
-                meta: { page: 3, principle: 2 }
-            },
-            {
-                path: 'significa',
-                component: Home,
-                meta: { page: 3, principle: 3 }
-            },
-            {
-                path: 'crea',
-                component: Home,
-                meta: { page: 3, principle: 4 }
-            }]
-        }]
-    },
-    {
-        path: '/bio', component: Biography
-    },
-    {
-        path: '/articulos', component: Articles
-    },
-    {
-        path: '/terapia', component: Terapia
-    }]
-
+            meta: { page: 3, principle: 1 },
+          },
+          {
+            path: "descubre",
+            component: Home,
+            meta: { page: 3, principle: 2 },
+          },
+          {
+            path: "significa",
+            component: Home,
+            meta: { page: 3, principle: 3 },
+          },
+          {
+            path: "crea",
+            component: Home,
+            meta: { page: 3, principle: 4 },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "/bio",
+    component: Biography,
+  },
+  {
+    path: "/ensenanzas",
+    component: Ensenanzas,
+  },
+  {
+    path: "/articulos",
+    component: Articles,
+  },
+  {
+    path: "/terapia",
+    component: Terapia,
+  },
+];
 
 // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
@@ -67,5 +80,4 @@ export const router = new VueRouter({
 })
 */
 
-
-export default new VueRouter({ mode: 'history', routes })
+export default new VueRouter({ mode: "history", routes });

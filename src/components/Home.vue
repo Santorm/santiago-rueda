@@ -122,7 +122,7 @@ export default {
               id: 1,
               quote: "Un punto ciego para nosotros mismos",
               content:
-                "<p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las desiciones que tomamos.</p><p>Estamos tan envueltos en nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>"
+                "<p>La respiración es como un pulso del que no somos siempre conscientes y que sin embargo podemos controlar. Al igual que con la respiración no siempre advertimos el por qué de las decisiones que tomamos.</p><p>Estamos tan envueltos en nuestra historia, que como si se tratase del aire, no vemos todo aquello que rodea nuestros actos y elecciones.</p>"
             },
             {
               id: 2,
@@ -132,7 +132,7 @@ export default {
             },
             {
               id: 3,
-              quote: "Un punto de escucha diferente",
+              quote: "Un espacio de escucha diferente",
               content:
                 "<p>Escuchar nuestra vida desde otro lugar nos permite tomar distancia y vernos a nosotros mismos desde un plano más amplio. Conocernos es descubrir los hilos inconscientes de nuestra vida, para desenredarlos y empezar a darnos cuenta de que somos nosotros los que tejemos nuestro relato.</p>"
             }
