@@ -65,7 +65,7 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link class="routerlink" to="/ensenanzas">enseñanzas</router-link>
+              <router-link class="routerlink" to="/ensenanzas">enseñanzas y testimonios</router-link>
             </div>
             <div
               :class="currentPage === 'bio' ? 'active': ''"
@@ -83,7 +83,7 @@
               @mouseleave="mouseNormal"
               @click="closeMenu"
             >
-              <router-link class="routerlink" to="/articulos">artículos</router-link>
+              <router-link class="routerlink" to="/articulos">para leer</router-link>
             </div>
           </div>
           <div class="presentationData">

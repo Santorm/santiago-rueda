@@ -7,7 +7,7 @@
     >
       <div class="home-text-wrap">
         <span class="text-focus-in-1">Espacio terapéutico para</span>
-        <span class="text-focus-in-2 text-espaced">el descubrimiento</span>
+        <span class="text-focus-in-2 text-espaced">el des-cubrimiento</span>
         <span class="text-focus-in-f">de uno mismo</span>
         <div @click="goToPage2" class="text-focus-in-f entra-btn">te acompaño</div>
       </div>
