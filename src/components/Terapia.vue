@@ -1,12 +1,13 @@
 <template>
   <div class="page-container">
     <div class="content-wrap">
-      <p class="title">Espacio terapéutico para la re-invención de uno mismo</p>
+      <p class="title">Espacio terapéutico para el des-cubrimiento de uno mismo</p>
       <p>Este es un espacio terapéutico en el que te acompaño y oriento a lo largo de un proceso creativo de observación, descubrimiento y diseño de tus propósitos.</p>
 
-      <p>Mi orientación terapéutica es desde el psicoanálisis y se alimenta de otras fuentes como el pensamiento crítico, el análisis narrativo y los procesos creativos. Trabajo con las personas, sus historias y deseos únicos e irrepetibles; lo que hace que el proceso terapéutico que te propongo este ‘hecho a medida’, diferenciándose de un tratamiento psicopatológico o de diagnóstico.</p>
+      <p><b>Mi orientación terapéutica se alimenta de mi propio caminar profesional y personal, atravezado por diversas y cambiantes dimensiones.</b> Unas académicas como el psicoanálisis lacaniano, la psicología, las teorías del pensamiento crítico, el análisis narrativo y los procesos creativos; pero en gran parte el color de mi propuesta terapéutica se ve matizada por mis vivencias personales, mi búsqueda espiritual y de sentido, mi práctica de la meditación, y sobre todo de los encuentros que he tenido con las personas y lugares que han marcado mi vida. Sin olvidar por supuesto las piedras con las que sigo tropezado una y otra vez en el camino. </p>
+      <p>Trabajo con las personas, sus historias y deseos únicos e irrepetibles; lo que hace que el proceso terapéutico que te propongo este ‘hecho a medida’, diferenciándose de un tratamiento psicopatológico o de diagnóstico.</p>
 
-      <p>Considero que nuestra condición humana es principalmente creadora, lo que significa que siempre es posible añadir un nuevo elemento a la serie de nuestra vida para lograr el cambio que buscamos. Este cambio requiere el coraje de re-inventarnos. Para logralo te propongo un proceso de creación disruptiva, en el que puedas alinear tus propósitos con tu modo único de estar en el mundo.</p>
+      <p>Estoy convencido que nuestra condición humana es principalmente creadora, lo que significa que siempre es posible añadir un nuevo elemento a la serie de nuestra vida para lograr el cambio que buscamos. Este cambio requiere el coraje de encontrarse con uno mismo. Para logralo te propongo un proceso de creación disruptiva, en el que puedas alinear tus propósitos con tu modo único de estar en el mundo.</p>
 
       <div @click="goToWhastsApp" class="text-focus-in-1 entra-btn">Empecemos...</div>
     </div>
